@@ -1,2 +1,3 @@
 # cookies
-single page website promoting cookies.
+Single page website promoting cookies
+first attempt at Bootstrap 
