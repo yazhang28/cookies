@@ -1,4 +1,4 @@
 # cookies
 Single page website promoting cookies
 <br/>
-first attempt at Bootstrap 
+First attempt at Bootstrap 
