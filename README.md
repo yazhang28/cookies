@@ -1,4 +1,4 @@
 # cookies
-A responsive single page website promoting cookies for girl scouts and parents.
+A responsive single page website promoting cookies.
 <br/>
 First attempt at Bootstrap 
