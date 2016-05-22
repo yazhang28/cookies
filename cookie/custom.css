@@ -1,0 +1,34 @@
+/*load welcome screen*/
+.fill {
+	background-color: #4b2f2f;
+	color: white;
+	height: 100vh;
+}
+
+.borders {
+	border: solid;
+}
+
+.add-marg {
+	margin: auto;
+}
+
+.make-block {
+	display: block;
+}
+
+#enter-btn {
+	color: rgb(255,239,198);
+	background-color: rgb(178,135,31);
+	text-align: center;
+	margin: auto;
+	max-width: 100px;
+	text-decoration: none;
+
+}
+
+#entry-btn: hover {
+	background-color: black;
+	color: black;
+}
+
