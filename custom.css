@@ -5,16 +5,30 @@
 	height: 100vh;
 }
 
-.col-cus {
-	background-color: black;
-	border-radius: 5px;
+.borders {
 	border: solid;
-	padding: 5px;
 }
 
-.col-cus2 {
-	background-color: grey;
-	border-radius: 5px;
-	border: solid;
-	border-color: black;
+.add-marg {
+	margin: auto;
 }
+
+.make-block {
+	display: block;
+}
+
+#enter-btn {
+	color: rgb(255,239,198);
+	background-color: rgb(178,135,31);
+	text-align: center;
+	margin: auto;
+	max-width: 100px;
+	text-decoration: none;
+
+}
+
+#entry-btn: hover {
+	background-color: black;
+	color: black;
+}
+
