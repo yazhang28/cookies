@@ -8,7 +8,6 @@
 .borders {
 	border: solid;
 }
-
 .add-marg {
 	margin: auto;
 }
@@ -17,18 +16,49 @@
 	display: block;
 }
 
-#enter-btn {
+.offset {
+	margin-top: 100px;
+}
+
+
+.btn-cus1 {
+	margin-top: 10px;
 	color: rgb(255,239,198);
-	background-color: rgb(178,135,31);
-	text-align: center;
-	margin: auto;
-	max-width: 100px;
+	letter-spacing: 2px;
+	-moz-transition: transform 1s, color 1s; /* Modzilla */
+	-o-transition: transform 1s, color 1s; /* Opera */
+	-webkit-transition: transform 1s, color 1s; /* Safari */	
+	transition: transform 1s, color 1s;
+
+}
+
+.btn-cus1:hover {
 	text-decoration: none;
-
+	color: rgb(178,135,31);
+	transform: translate(-5px, 0px);
 }
 
-#entry-btn: hover {
-	background-color: black;
-	color: black;
+.btn-cus1 span:after {
+	content: '>>'
 }
 
+.btn-cus {
+	border-radius: 2px;
+	border-color: rgb(178,135,31);
+	margin-top: 15px;
+	color: rgb(178,135,31);
+	box-shadow: 0px 5px rgb(159,122,34);
+	text-decoration: none;
+}
+
+.btn-cus:hover {
+	background-color: rgba(178,135,31, 0.2);
+	border-color: rgb(178,135,31);
+	text-decoration: none;
+	color: rgb(178,135,31);
+}
+
+.btn-cus:active {
+	transform: translate(0, 3px);
+	box-shadow: 0 2px;
+}
