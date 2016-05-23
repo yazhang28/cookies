@@ -1,12 +1,17 @@
 /*load welcome screen*/
 .fill {
 	background-color: #4b2f2f;
-	color: white;
 	height: 100vh;
+}
+
+.fill2 {
+	height: 50vh;
+	background-color: brown;
 }
 
 .borders {
 	border: solid;
+	border-color: white;
 }
 .add-marg {
 	margin: auto;
@@ -20,6 +25,10 @@
 	margin-top: 100px;
 }
 
+.make-hidden {
+	display: none;
+
+}
 
 #btn-cus {
 	background-color: rgba(178,135,31, 0.5);
@@ -41,11 +50,11 @@
 	border-color: rgb(178,135,31);
 	color: rgb(178,135,31);
 	text-decoration: none;
+
 }
 
 #btn-cus:active {
 	box-shadow: 0 2px rgb(148,113,31);;
-	outline: none !important;
 	transform: translate(0, 2px);
 }
 
@@ -54,12 +63,12 @@
 }
 
 #cookie {
-	transition: transform 2s;
+	transition: transform 1s;
 	transition-delay: 0.2s;
 	transition-timing-function: cubic-bezier(.18,.2,0,.65);
 }
-#cookie:hover {
 
+#cookie:hover {
 	transform: rotate(360deg);
 }
 
