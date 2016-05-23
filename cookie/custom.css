@@ -21,40 +21,20 @@
 }
 
 
-.btn-cus1 {
-	margin-top: 10px;
-	color: rgb(255,239,198);
-	letter-spacing: 2px;
-	-moz-transition: transform 1s, color 1s; /* Modzilla */
-	-o-transition: transform 1s, color 1s; /* Opera */
-	-webkit-transition: transform 1s, color 1s; /* Safari */	
-	transition: transform 1s, color 1s;
-
-}
-
-.btn-cus1:hover {
-	text-decoration: none;
-	color: rgb(178,135,31);
-	transform: translate(-5px, 0px);
-}
-
-.btn-cus1 span:after {
-	content: '>>'
-}
-
 .btn-cus {
 	letter-spacing: 2px;
 	border-radius: 2px;
 	border-color: rgb(178,135,31);
+	background-color: rgba(178,135,31, 0.5);
 	margin-top: 30px;
-	color: rgb(178,135,31);
-	box-shadow: 0px 5px rgb(159,122,34);
+	color: rgb(69,41,41);
+	box-shadow: 0px 4px rgb(148,113,31);
 	text-decoration: none;
-	transition: transform 0.5s, box-shadow 0.5s, background-color 1s;
+	transition: transform 0.5s, box-shadow 0.5s, background-color 1s, color 1s;
 }
 
 .btn-cus:hover {
-	background-color: rgba(178,135,31, 0.2);
+	background-color: rgba(178,135,31, 0.3);
 	border-color: rgb(178,135,31);
 	text-decoration: none;
 	color: rgb(178,135,31);
@@ -62,5 +42,5 @@
 
 .btn-cus:active {
 	transform: translate(0, 3px);
-	box-shadow: 0 2px;
+	box-shadow: 0 1px;
 }
