@@ -2,6 +2,7 @@
 .fill {
 	background-color: #4b2f2f;
 	height: 100vh;
+	color: white;
 }
 
 .fill2 {
@@ -40,9 +41,9 @@
 	margin-top: 30px;
 	text-decoration: none;
 
-	-moz-transition: transform 0.5s, box-shadow 0.6s, background-color 0.5s, color 0.5s;
-	-webkit-transition: transform 0.5s, box-shadow 0.6s, background-color 0.5s, color 0.5s;
-	transition: transform 0.5s, box-shadow 0.6s, background-color 0.5s, color 0.5s;
+	-moz-transition: transform 0.3s, box-shadow 0.4s, background-color 0.5s, color 0.5s;
+	-webkit-transition: transform 0.3s, box-shadow 0.4s, background-color 0.5s, color 0.5s;
+	transition: transform 0.3s, box-shadow 0.4s, background-color 0.5s, color 0.5s;
 }
 
 #btn-cus:hover {
@@ -61,14 +62,3 @@
 #btn-cus:focus {
 	outline: none;
 }
-
-#cookie {
-	transition: transform 1s;
-	transition-delay: 0.2s;
-	transition-timing-function: cubic-bezier(.18,.2,0,.65);
-}
-
-#cookie:hover {
-	transform: rotate(360deg);
-}
-
