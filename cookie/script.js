@@ -1,10 +1,8 @@
 var enterBtnId = document.getElementById("enter_btn");
-var landPageId = document.getElementById("landingPage");
-
-enterBtnId.addEventListener("click", function() {displayHidden(landPageId)});
+enterBtnId.addEventListener("click", function() {closeWelcome()});
 
 enterBtnId.addEventListener("mouseover",
-	function() {cookieAnim("translate(0, -10px)",
+	function() {cookieAnim("translate(0, -15px)",
 		"0.5s",
 		"", 
 		"cubic-bezier(.35,.84,.62,.79)")})
@@ -17,6 +15,11 @@ enterBtnId.addEventListener("mouseout",
 
 function displayHidden(element) {
 	element.style.display = "block";
+}
+
+function closeWelcome() {
+	document.getElementById("welcomeScreen").style.height = "0%";
+	
 }
 
 function cookieAnim(transf, transi, transDelay, transFunction) {
