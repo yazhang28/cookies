@@ -1,12 +1,9 @@
 .overlay {
 	background-color: #4b2f2f;
-	height: 100%;
 	overflow-y: hidden;  /*hide content*/
-	position: fixed;
 	-moz-transition: 0.5s;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
-	width: 100%;
 	z-index: 1;
 }
 
@@ -25,6 +22,10 @@
 	height: 100%;
 	position: fixed;
 	width: 100%;
+}
+
+#welcomeScreen {
+	background-color: #4b2f2f;
 }
 
 #landingPage {
