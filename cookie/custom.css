@@ -31,7 +31,7 @@
 
 }
 
-#btn-cus {
+#enter_btn {
 	background-color: rgba(178,135,31, 0.5);
 	border-color: rgb(178,135,31);
 	border-radius: 2px;
@@ -46,7 +46,7 @@
 	transition: transform 0.3s, box-shadow 0.4s, background-color 0.5s, color 0.5s;
 }
 
-#btn-cus:hover {
+#enter_btn:hover {
 	background-color: rgba(178,135,31, 0.3);
 	border-color: rgb(178,135,31);
 	color: rgb(178,135,31);
@@ -54,11 +54,11 @@
 
 }
 
-#btn-cus:active {
+#enter_btn:active {
 	box-shadow: 0 2px rgb(148,113,31);;
 	transform: translate(0, 2px);
 }
 
-#btn-cus:focus {
+#enter_btn:focus {
 	outline: none;
 }
