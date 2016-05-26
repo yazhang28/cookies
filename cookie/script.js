@@ -1,9 +1,19 @@
 var enterBtnId = document.getElementById("enter_btn");
 var landPageId = document.getElementById("landingPage");
-		
+
 enterBtnId.addEventListener("click", function() {displayHidden(landPageId)});
-enterBtnId.addEventListener("mouseover", function() {cookieAnim("translate(0, -10px)", "0.5s", "", "cubic-bezier(.35,.84,.62,.79)")})
-enterBtnId.addEventListener("mouseout", function() {cookieAnim("translate(0, 0)", "0.5s", "0.1s", "cubic-bezier(.35,.84,.62,.79)")})
+
+enterBtnId.addEventListener("mouseover",
+	function() {cookieAnim("translate(0, -10px)",
+		"0.5s",
+		"", 
+		"cubic-bezier(.35,.84,.62,.79)")})
+
+enterBtnId.addEventListener("mouseout", 
+	function() {cookieAnim("translate(0, 0)",
+		"0.5s",
+		"0.1s",
+		"cubic-bezier(.35,.84,.62,.79)")})
 
 function displayHidden(element) {
 	element.style.display = "block";
