@@ -1,6 +1,6 @@
 var enterBtnId = document.getElementById("enter_btn");
+var cookieId = document.getElementById("cookie");
 enterBtnId.addEventListener("click", function() {closeWelcome()});
-
 enterBtnId.addEventListener("mouseover",
 	function() {cookieAnim("translate(0, -15px)",
 		"0.5s",
@@ -13,17 +13,18 @@ enterBtnId.addEventListener("mouseout",
 		"0.1s",
 		"cubic-bezier(.35,.84,.62,.79)")})
 
-function displayHidden(element) {
-	element.style.display = "block";
-}
-
 function closeWelcome() {
 	document.getElementById("welcomeScreen").style.height = "0%";
+	enterBtnId.style.opacity = "0";
+	cookieId.style.opacity = "0";
+	cookieId.style.transition = "opacity 0.5s";
+	cookieId.style.WebkitTransition = "opacity 0.5s";
+	enterBtnId.style.transition = "opacity 0.5s";
+	enterBtnId.style.WebkitTransition = "opacity 0.5s";
 	
 }
 
 function cookieAnim(transf, transi, transDelay, transFunction) {
-	var cookieId = document.getElementById("cookie");
 	cookieId.style.transform = transf;
 	cookieId.style.msTransform = transf; // IE
 	cookieId.style.WebkitTransform = transf; // Chrome & Safari
