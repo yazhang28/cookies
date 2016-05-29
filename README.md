@@ -3,4 +3,4 @@ A responsive single page website promoting cookies.
 <br/>
 goals:
 <br/>
-Although some things could have been done with the use of libraries, this independent project was taken on for the sake of learning and practice in Javascript, Bootstrap, and CSS.
+Although some things could have been done with the use of libraries, the idea of this project was to learn and practice JavaScript, Bootstrap 3, and CSS 3.
