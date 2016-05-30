@@ -25,40 +25,49 @@ body {
 }
 
 #enter_btn {
-	background-color: rgba(178,135,31, 0.5);
-	border-color: rgb(178,135,31);
-	border-radius: 2px;
-	box-shadow: 0px 4px rgb(148,113,31);
-	color: rgb(69,41,41);
+	width: 20%;
+	background-color: #432727;
+	box-shadow: 0 5px #391D1D;
+	/*color: #6A4843;*/
+	color: #856969;
+	font-weight: bold;
 	letter-spacing: 2px;
 	margin-top: 30px;
+	text-align: center;
 	text-decoration: none;
 
-	-moz-transition: transform 0.3s, box-shadow 0.4s, background-color 0.5s, color 0.5s;
-	-webkit-transition: transform 0.3s, box-shadow 0.4s, background-color 0.5s, color 0.5s;
-	transition: transform 0.3s, box-shadow 0.4s, background-color 0.5s, color 0.5s;
+	-moz-transition: transform 0.2s, box-shadow 0.2s;
+	-webkit-transition: transform 0.2s, box-shadow 0.2s;
+	transition: transform 0.2s, box-shadow 0.2s;
 }
-
 #enter_btn:hover {
-	background-color: rgba(178,135,31, 0.3);
-	border-color: rgb(178,135,31);
-	color: rgb(178,135,31);
-	text-decoration: none;
-
+	box-shadow: 0 3px #391D1D;
+	-webkit-transform: translateY(2px);
+	-moz-transform: translateY(2px);
+	-ms-transform: translateY(2px);
+	-o-transform: translateY(2px);
+	transform: translateY(2px);
 }
 
 #enter_btn:active {
-	box-shadow: 0 2px rgb(148,113,31);;
-	transform: translate(0, 2px);
+	box-shadow: 0 0 #391D1D;
+	-webkit-transform: translateY(3px);
+	-moz-transform: translateY(3px);
+	-ms-transform: translateY(3px);
+	-o-transform: translateY(3px);
+	transform: translateY(3px);
 }
 
 #enter_btn:focus {
 	outline: none;
 }
 
+
 #landingPage {
+	/*background-color: lavender;*/
+	/*background-color: wheat;*/
+	/*color: #675A3C;*/
 	background-color: wheat;
-	color: #675A3C;;
 	font-family: 'Playfair Display', serif;
 }
 
@@ -70,10 +79,9 @@ body {
 }
 
 #about-head {
+	color: #4b2f2f;
 	opacity: 0;
 	margin-top: 40px;
-	text-align: right;
-	height: 50%;
 }
 
 .content {
@@ -83,11 +91,17 @@ body {
 }
 
 #about-content {
+	color: #4b2f2f;
 	opacity: 0;
 	font-size: 3vh;
 	margin-top: 30px;
 }
 
+#shop-content {
+	background-color: #973131;
+	/*background-color: lavender;*/
+	height: 100vh;
+}
 .add-marg {
 	margin: auto;
 }
@@ -113,9 +127,4 @@ body {
 	border: solid coral;
 }
 
-.something {
-	border: solid black;
-	background-color: darkgray;
-	height: 50vh;
-}
 /* for testing */

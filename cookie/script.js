@@ -33,17 +33,17 @@ function showAbout() {
 	aboutContentId.style.opacity = "1";
 	aboutHeadId.style.opacity = "1";
 
-	aboutHeadId.style.transition = "opacity 1s, margin-top 1s";
-	aboutHeadId.style.webkitTransition = "opacity 1s, margin-top 1s";
+	aboutHeadId.style.transition = "opacity 0.6s, margin-top 0.6s";
+	aboutHeadId.style.webkitTransition = "opacity 0.6s, margin-top 0.6s";
 
-	aboutHeadId.style.webkitTransitionDelay = "0.3s";
-	aboutHeadId.style.transitionDelay = "0.3s";
+	aboutHeadId.style.webkitTransitionDelay = "0.6s";
+	aboutHeadId.style.transitionDelay = "0.6s";
 
-	aboutContentId.style.webkitTransition = "opacity 1s, margin-top 1s";
-	aboutContentId.style.transition = "opacity 1s, margin-top 1s";
+	aboutContentId.style.webkitTransition = "opacity 0.6s, margin-top 0.6s";
+	aboutContentId.style.transition = "opacity 0.6s, margin-top 0.6s";
 
-	aboutContentId.style.webkitTransitionDelay = "0.7s";
-	aboutContentId.style.transitionDelay = "0.7s";
+	aboutContentId.style.webkitTransitionDelay = "0.8s";
+	aboutContentId.style.transitionDelay = "0.8s";
 
 }
 
@@ -54,14 +54,18 @@ function closeWelcome() {
 	enterBtnId.style.opacity = "0";
 	cookieId.style.opacity = "0";
 
-	welcomeScreenId.style.transition = " height 1s"
-	welcomeScreenId.style.WebkitTransition = "height 1s";
+	welcomeScreenId.style.transition = " height 0.8s"
+	welcomeScreenId.style.WebkitTransition = "height 0.8s";
 
-	cookieId.style.transition = "opacity 0.7s";
-	cookieId.style.WebkitTransition = "opacity 0.7s";
+	cookieId.style.transition = "opacity 0.6s";
+	cookieId.style.WebkitTransition = "opacity 0.6s";
 
-	enterBtnId.style.transition = "opacity 0.7s";
-	enterBtnId.style.WebkitTransition = "opacity 0.7s";
+	enterBtnId.style.transition = "opacity 0.6s";
+	enterBtnId.style.WebkitTransition = "opacity 0.6s";
+
+	welcomeScreenId.style.transitionDelay = "0.2s";
+	cookieId.style.transitionDelay = "0.2s";
+	enterBtnId.style.transitionDelay = "0.2s";
 }
 
 function cookieAnim(transf, transi, transDelay, transFunction) {
