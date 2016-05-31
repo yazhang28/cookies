@@ -114,6 +114,13 @@ body {
 .row-borders {
 	border: solid aqua;
 }
+.borders-wrap {
+	border: solid darkblue;
+}
+
+.borders-body {
+	border: solid green;
+}
 
 .borders-content {
 	border: solid brown;

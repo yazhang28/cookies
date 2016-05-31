@@ -1,6 +1,27 @@
 var enterBtnId = document.getElementById("enter_btn");
 var cookieId = document.getElementById("cookie");
 var welcomeScreenId = document.getElementById("welcomeScreen");
+var wrapAboutId = document.getElementById("wrap-about");
+var aboutId = document.getElementById("about");
+
+window.addEventListener("scroll", divPassed);
+
+function divPassed() {
+	var bottomLeft = wrapAboutId.clientHeight + wrapAboutId.clientTop;
+	if (scrollY > bottomLeft) {
+		console.log("passed");
+		aboutId.style.opacity = "0";
+		aboutId.style.transition = "0.1s";
+	} else {
+		console.log("not passed");
+		aboutId.style.opacity = "1";
+		aboutId.style.transition = "1s";
+	}
+}
+
+function hideElement(element) {
+	element.style.opacity = "0";
+}
 
 // show about after welcome page transitions
 welcomeScreenId.addEventListener("webkitTransitionEnd", showAbout);
@@ -15,14 +36,14 @@ enterBtnId.addEventListener("mouseover",
 	function() {cookieAnim("translate(0, -15px)",
 		"0.5s",
 		"", 
-		"cubic-bezier(.35,.84,.62,.79)")})
+		"cubic-bezier(.35,.84,.62,.79)")});
 
 // cookie transition when mouse moves away from enter button
 enterBtnId.addEventListener("mouseout", 
 	function() {cookieAnim("translate(0, 0)",
 		"0.5s",
 		"0.1s",
-		"cubic-bezier(.35,.84,.62,.79)")})
+		"cubic-bezier(.35,.84,.62,.79)")});
 
 function showAbout() {
 	var aboutContentId = document.getElementById("about-content");
