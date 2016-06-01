@@ -15,7 +15,24 @@ body {
 	top: 25%;
 }
 
-#welcomeScreen-final, #welcomeScreen-init {
+/* transition delay 0.2 */
+#enterBtn-final, #cookie-final, #cookie, #cookie-anim, #aboutHead-final {
+	-webkit-transition-delay: 0.2s;
+	-moz-transition-delay: 0.2s;
+	-o-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+
+/* text decoration: none */
+#pullTabBtn:hover, #pullTabBtn:focus, #enterBtn, #enterBtn-final {
+	text-decoration: none;
+}
+
+#welcomeScreen-init, #welcomeScreen-final {
+	-webkit-transition: 0.8s;
+	-moz-transition: 0.8s;
+	-o-transition: 0.8s;
+	transition: 0.8s;
 	background-color: #4b2f2f;
 }
 
@@ -25,40 +42,23 @@ body {
 
 #welcomeScreen-final {
 	height: 0;
-
-	-webkit-transition: 0.8s;
-	-moz-transition: 0.8s;
-	-o-transition: 0.8s;
-	transition: 0.8s;
 }
 
-/* when enter button is clicked and overlay is off */
-#welcomeScreen-final, #enter-btn-final, #cookie-final {
-	-webkit-transition-delay: 0.2s;
-	-moz-transition-delay: 0.2s;
-	-o-transition-delay: 0.2s;
-	transition-delay: 0.2s;
-}
+/* doesnt work*/
+/*#enterBtn-final, #cookie-final {*/
+	/*opacity: 0;*/
 
-#enter-btn-final,#cookie-final {
-	opacity: 0;
-
-	-webkit-transition: opacity 0.6s;
-	-moz-transition: opacity 0.6s;
-	-o-transition: opacity 0.6s;
-	transition: opacity 0.6s;
-}
+	/*-webkit-transition: opacity 0.6s;*/
+	/*-moz-transition: opacity 0.6s;*/
+	/*-o-transition: opacity 0.6s;*/
+	/*transition: opacity 0.6s;*/
+/*}*/
 
 #cookie, #cookie-anim {
 	-webkit-transition: transform 0.5s;
 	-moz-transition: transform 0.5s;
 	-o-transition: transform 0.5s;
 	transition: transform 0.5s;
-
-	-webkit-transition-delay: 0.2s;
-	-moz-transition-delay: 0.2s;
-	-o-transition-delay: 0.2s;
-	transition-delay: 0.2s;
 
 	-webkit-transition-timing-function: cubic-bezier(.35,.84,.62,.79);
 	-moz-transition-timing-function: cubic-bezier(.35,.84,.62,.79);
@@ -75,7 +75,7 @@ body {
 	transform: translateY(-20px);
 }
 
-#enter-btn, #enter-btn-final {
+#enterBtn, #enterBtn-final {
 	width: 160px;
 	background-color: #432727;
 	box-shadow: 0 5px #391D1D;
@@ -84,17 +84,16 @@ body {
 	letter-spacing: 2px;
 	margin-top: 30px;
 	text-align: center;
-	text-decoration: none;
 }
 
-#enter-btn {
+#enterBtn {
 	-webkit-transition: transform 0.2s, box-shadow 0.2s;
 	-moz-transition: transform 0.2s, box-shadow 0.2s;
 	-o-transition: transform 0.2s, box-shadow 0.2s;
 	transition: transform 0.2s, box-shadow 0.2s;
 }
 
-#enter-btn:hover {
+#enterBtn:hover {
 	box-shadow: 0 3px #391D1D;
 	-webkit-transform: translateY(2px);
 	-moz-transform: translateY(2px);
@@ -103,7 +102,7 @@ body {
 	transform: translateY(2px);
 }
 
-#enter-btn:active {
+#enterBtn:active {
 	box-shadow: 0 0 #391D1D;
 	-webkit-transform: translateY(3px);
 	-moz-transform: translateY(3px);
@@ -112,7 +111,7 @@ body {
 	transform: translateY(3px);
 }
 
-#enter-btn:focus, #enter-btn-final {
+#enterBtn:focus, #enterBtn-final {
 	outline: none;
 }
 
@@ -135,20 +134,20 @@ body {
 	word-spacing: 5px;
 }
 
-#about-head-init, #about-content-init {
+#aboutHead-init, #aboutContent-init {
 	color: #4b2f2f;
 	opacity: 0;
 }
 
-#about-head-init {
+#aboutHead-init {
 	margin-top: 40px;
 }
 
-#about-content-init {
+#aboutContent-init {
 	margin-top: 30px;
 }
 
-#about-head-final, #about-content-final {
+#aboutHead-final, #aboutContent-final {
 	opacity: 1;
 	margin-top: 20px;
 	-webkit-transition: opacity 0.6s, margin-top 0.6s;
@@ -157,21 +156,19 @@ body {
 	transition: opacity 0.6s, margin-top 0.6s;
 }
 
-#about-head-final {
-	-webkit-transition-delay: 0.2s;
-	-moz-transition-delay: 0.2s;
-	-o-transition-delay: 0.2s;
-	transition-delay: 0.2s;
-}
-#about-content-final {
+#aboutContent-final {
 	-webkit-transition-delay: 0.4s;
 	-moz-transition-delay: 0.4s;
 	-o-transition-delay: 0.4s;
 	transition-delay: 0.4s;
 }
 
-#shop-content {
+#shopContent {
 	background-color: #973131;
+}
+
+#pullTabBtn {
+	color: #A38787;
 }
 
 .add-marg {
@@ -183,26 +180,29 @@ body {
 }
 
 /* for testing */
-/*.row-borders {*/
-	/*border: solid aqua;*/
-/*}*/
-/*.borders-wrap {*/
-	/*border: solid darkblue;*/
-/*}*/
+.row-borders {
+	border: solid aqua;
+}
+.borders-wrap {
+	border: solid darkblue;
+}
 
-/*.borders-body {*/
-	/*border: solid green;*/
-/*}*/
+.borders-body {
+	border: solid black;
+}
 
-/*.borders-content {*/
-	/*border: solid brown;*/
-/*}*/
+.borders-content {
+	border: solid teal;
+}
 
-/*.borders-head {*/
-	/*border: solid #ff76df*/
-/*}*/
+.borders-head {
+	border: solid #ff76df
+}
 
-/*.borders-nav{*/
-	/*border: solid coral;*/
-/*}*/
+.borders-nav{
+	border: solid coral;
+}
+.borders-pullTab {
+	border: solid red;
+}
 /* for testing */
