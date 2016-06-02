@@ -28,11 +28,19 @@ body {
 	text-decoration: none;
 }
 
-#welcomeScreen-init, #welcomeScreen-final {
+#welcomeScreen-init, #welcomeScreen-final, #pullTabBtn, #pullTabBtn-final {
 	-webkit-transition: 0.8s;
 	-moz-transition: 0.8s;
 	-o-transition: 0.8s;
 	transition: 0.8s;
+
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+#welcomeScreen-init, #welcomeScreen-final {
 	background-color: #4b2f2f;
 }
 
@@ -44,17 +52,38 @@ body {
 	height: 0;
 }
 
-/* doesnt work*/
-/*#enterBtn-final, #cookie-final {*/
-	/*opacity: 0;*/
+/* button position at top*/
+#pullTabBtn, #pullTabBtn-final {
+	color: #A38787;
+	position: fixed;
+	z-index: 1;
+	text-align: center;
+	left: 50%;
+}
 
-	/*-webkit-transition: opacity 0.6s;*/
-	/*-moz-transition: opacity 0.6s;*/
-	/*-o-transition: opacity 0.6s;*/
-	/*transition: opacity 0.6s;*/
-/*}*/
+#pullTabBtn, #pullTabBtn-init {
+	top: 0;
+}
+
+#pullTabBtn {
+	top: 0;
+	display: block;
+}
+
+#pullTabBtn-final {
+	top: 100%;
+}
+
+/* doesnt work*/
+#enterBtn-final, #cookie-final {
+	-webkit-transition: opacity 0.6s;
+	-moz-transition: opacity 0.6s;
+	-o-transition: opacity 0.6s;
+	transition: opacity 0.6s;
+}
 
 #cookie, #cookie-anim {
+	opacity: 1;
 	-webkit-transition: transform 0.5s;
 	-moz-transition: transform 0.5s;
 	-o-transition: transform 0.5s;
@@ -167,10 +196,6 @@ body {
 	background-color: #973131;
 }
 
-#pullTabBtn {
-	color: #A38787;
-}
-
 .add-marg {
 	margin: auto;
 }
@@ -180,29 +205,30 @@ body {
 }
 
 /* for testing */
-.row-borders {
-	border: solid aqua;
-}
-.borders-wrap {
-	border: solid darkblue;
-}
+/*.row-borders {*/
+	/*border: solid aqua;*/
+/*}*/
+/*.borders-wrap {*/
+	/*border: solid darkblue;*/
+/*}*/
 
-.borders-body {
-	border: solid black;
-}
+/*.borders-body {*/
+	/*border: solid black;*/
+/*}*/
 
-.borders-content {
-	border: solid teal;
-}
+/*.borders-content {*/
+	/*border: solid teal;*/
+/*}*/
 
-.borders-head {
-	border: solid #ff76df
-}
+/*.borders-head {*/
+	/*border: solid #ff76df*/
+/*}*/
 
-.borders-nav{
-	border: solid coral;
-}
-.borders-pullTab {
-	border: solid red;
-}
+/*.borders-nav{*/
+	/*border: solid coral;*/
+/*}*/
+
+/*.borders-pullTab {*/
+	/*border: solid red;*/
+/*}*/
 /* for testing */
