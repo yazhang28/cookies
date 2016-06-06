@@ -4,8 +4,10 @@ var welcomeScreenId = document.getElementById("welcomeScreen-init");
 var wrapAboutId = document.getElementById("wrap-about");
 var aboutHeadId = document.getElementById("aboutHead-init");
 var aboutContentId = document.getElementById("aboutContent-init");
+var pullTabWrapId = document.getElementById("pullTab-wrap");
 var pullTabIconId = document.getElementById("pullTabBtnIcon");
-var pullTabBtnId = document.getElementById("pullTabBtn-final");
+var pullTabBtnId = document.getElementById("pullTabBtn");
+var scrollTimer = -1;
 
 // animate cookie icon when mousing over enter button
 enterBtnId.addEventListener("mouseover", function () {
@@ -23,7 +25,6 @@ enterBtnId.addEventListener("click", function() {
 	pullTabIconId.className = "glyphicon glyphicon-remove img-responsive";
 	setTimeout(function () {
 		welcomeAction("open");
-		pullTabBtnId.id = "pullTabBtn";
 	}, 300);
 });
 
@@ -32,7 +33,6 @@ pullTabBtnId.addEventListener("click", function () {
 	pullTabIconId.className = "glyphicon glyphicon-chevron-up img-responsive";
 	setTimeout(function () {
 		welcomeAction("close");
-		pullTabBtnId.id = "pullTabBtn-final";
 	}, 300);
 	setTimeout(function () {
 		window.scrollTo(0,0);
@@ -43,9 +43,23 @@ pullTabBtnId.addEventListener("click", function () {
 
 // check if element is in viewport
 window.addEventListener("scroll", function () {
-	
+	pullTabWrapId.id = "pullTab-wrap";
 	divPassed();
+
+	// check if user stop scrolling
+	if (scrollTimer != -1) {
+		clearTimeout(scrollTimer);
+	}
+	scrollTimer = window.setTimeout(function () {
+		scrollFinished();
+	}, 500);
 });
+
+function scrollFinished() {
+	setTimeout(function () {
+		pullTabWrapId.id = "pullTab-wrap-show";
+	}, 150)
+}
 
 function cookieAnim(setId) {
 	cookieId.id = setId;
@@ -66,6 +80,7 @@ function welcomeAction(action) {
 		welcomeScreenId.id = "welcomeScreen-init";
 		enterBtnId.id = "enterBtn";
 		cookieId.id = "cookie";
+		pullTabWrapId.id = "pullTab-wrap-final";
 	}
 }
 
