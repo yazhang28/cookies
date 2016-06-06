@@ -37,6 +37,7 @@ pullTabBtnId.addEventListener("click", function () {
 	setTimeout(function () {
 		window.scrollTo(0,0);
 		aboutAction("hide");
+		pullTabWrapId.id = "pullTab-wrap-show";
 	}, 1000);
 });
 
@@ -73,7 +74,6 @@ function welcomeAction(action) {
 		cookieId.id = "cookie-final";
 		setTimeout(function () {
 			aboutAction("show");
-			pullTabWrapId.id = "pullTab-wrap-show";
 		}, 500);
 
 	} else {
