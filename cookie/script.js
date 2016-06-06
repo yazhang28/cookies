@@ -72,7 +72,8 @@ function welcomeAction(action) {
 		enterBtnId.id = "enterBtn-final";
 		cookieId.id = "cookie-final";
 		setTimeout(function () {
-			aboutAction("show")
+			aboutAction("show");
+			pullTabWrapId.id = "pullTab-wrap-show";
 		}, 500);
 
 	} else {
