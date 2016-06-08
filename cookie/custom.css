@@ -208,6 +208,21 @@ body {
 	background-color: #973131;
 	height: 80vh;
 	overflow-y: scroll;
+	color: wheat;
+
+}
+
+/*.shop-col-marg {*/
+	/*margin-left: 5vh;*/
+	/*margin-right: 5vh;*/
+/*}*/
+
+.row-marg {
+	margin-top: 20px;
+}
+
+#shop-row-last {
+	margin-bottom: 20px;
 }
 
 .add-marg {
