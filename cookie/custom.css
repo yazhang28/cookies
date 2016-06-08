@@ -206,6 +206,8 @@ body {
 
 #shopContent {
 	background-color: #973131;
+	height: 80vh;
+	overflow-y: scroll;
 }
 
 .add-marg {

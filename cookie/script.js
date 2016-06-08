@@ -56,6 +56,7 @@ window.addEventListener("scroll", function () {
 	}, 500);
 });
 
+// show pull tab button when user stops scrolling
 function scrollFinished() {
 	setTimeout(function () {
 		pullTabWrapId.id = "pullTab-wrap-show";
