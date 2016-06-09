@@ -117,14 +117,23 @@ body {
 	transform: translateY(-20px);
 }
 
+#enterBtn, #enterBtn-final, .cookieBtn, .cookieBtn1 {
+	font-size: 2vh;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
 #enterBtn, #enterBtn-final {
 	background-color: #432727;
 	box-shadow: 0 5px #391D1D;
-	font-weight: bold;
-	letter-spacing: 2px;
+	/*font-weight: bold;*/
+	/*letter-spacing: 2px;*/
 	margin-top: 30px;
 	text-align: center;
-	width: 160px;
+	/*padding-left: 60px;*/
+	/*padding-right: 60px;*/
+	/*width: 160px;*/
+	width: 30vh;
 }
 
 #enterBtn {
@@ -152,7 +161,7 @@ body {
 	transform: translateY(3px);
 }
 
-#enterBtn:focus, #enterBtn-final {
+#enterBtn:focus, #enterBtn-final{
 	outline: none;
 }
 
@@ -213,6 +222,38 @@ body {
 	height: 100vh;
 	overflow-y: scroll;
 	color: wheat;
+}
+
+
+.cookieBtn, .cookieBtn:active {
+	background-color: #8D2727;
+	box-shadow: 0 5px #831D1D;
+
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+
+	min-height: 40vh; /* 160px */
+	position: relative;
+	padding-right: 5vh;
+	padding-left: 5vh;
+}
+
+.btnTxt{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	background-color: #831D1D;
+	box-shadow: 0 5px #791313;
+	display: block;
+	padding-top: 2vh;
+	min-height: 7vh;
+
+}
+
+.cookies {
+	position: relative;
+	left: 0;
 }
 
 .row-marg {
