@@ -9,6 +9,7 @@ var pullTabIconId = document.getElementById("pullTabBtnIcon");
 var pullTabBtnId = document.getElementById("pullTabBtn");
 var scrollTimer = -1;
 
+
 // animate cookie icon when mousing over enter button
 enterBtnId.addEventListener("mouseover", function () {
 	cookieAnim("cookie-anim");
