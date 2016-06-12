@@ -1,9 +1,10 @@
 var enterBtnId = document.getElementById("enterBtn");
 var cookieId = document.getElementById("cookie");
 var welcomeScreenId = document.getElementById("welcomeScreen-init");
-var wrapAboutId = document.getElementById("row-about");
-var aboutHeadId = document.getElementById("aboutHead-init");
-var aboutContentId = document.getElementById("aboutContent-init");
+var aboutId = document.getElementById("about");
+var aboutHeadId = document.getElementById("aboutHead");
+var aboutContentId = document.getElementById("aboutContent");
+var shopTitleId = document.getElementById("shopTitle");
 var pullTabWrapId = document.getElementById("pullTab-wrap");
 var pullTabIconId = document.getElementById("pullTabBtnIcon");
 var pullTabBtnId = document.getElementById("pullTabBtn");
@@ -22,7 +23,8 @@ enterBtnId.addEventListener("mouseout", function () {
 // closes welcome screen and re-enable scroll when enter button clicked
 enterBtnId.addEventListener("click", function() {
 	window.scrollTo(0,0);
-	aboutAction("hide");
+	elementHideOrShow(aboutHeadId, "hide");
+	elementHideOrShow(aboutContentId, "hide");
 	pullTabIconId.className = "glyphicon glyphicon-remove img-responsive";
 	setTimeout(function () {
 		welcomeAction("open");
@@ -37,16 +39,19 @@ pullTabBtnId.addEventListener("click", function () {
 	}, 300);
 	setTimeout(function () {
 		window.scrollTo(0,0);
-		aboutAction("hide");
+		elementHideOrShow(aboutHeadId, "hide");
+		elementHideOrShow(aboutContentId, "hide");
+
 		pullTabWrapId.id = "pullTab-wrap";
 	}, 1000);
 });
 
 
-// check if element is in viewport
+// check if element is in viewport and apply appropriate animation
 window.addEventListener("scroll", function () {
 	pullTabWrapId.id = "pullTab-wrap";
-	divPassed();
+
+	scrollAnim();
 
 	// check if user stop scrolling
 	if (scrollTimer != -1) {
@@ -75,7 +80,8 @@ function welcomeAction(action) {
 		enterBtnId.id = "enterBtn-final";
 		cookieId.id = "cookie-final";
 		setTimeout(function () {
-			aboutAction("show");
+			elementHideOrShow(aboutHeadId, "");
+			elementHideOrShow(aboutContentId, "");
 			pullTabWrapId.id = "pullTab-wrap-show"
 		}, 500);
 
@@ -88,22 +94,47 @@ function welcomeAction(action) {
 	}
 }
 
-function aboutAction(action) {
+function elementHideOrShow(element, action) {
 	if (action == "hide") {
-		aboutHeadId.id = "aboutHead-init";
-		aboutContentId.id = "aboutContent-init";
+
+		element.className = element.className.replace('element-final-style' , 'element-init-style' );
+		// console.log("hide");
+		// console.log(element.className);
 	} else {
-		aboutHeadId.id = "aboutHead-final";
-		aboutContentId.id = "aboutContent-final";
+		element.className = element.className.replace('element-init-style', 'element-final-style');
+		// console.log("show");
+		// console.log(element.className);
 	}
 }
 
-// make function usable for all elements
-function divPassed() {
-	var bottomLeft = wrapAboutId.clientHeight + wrapAboutId.clientTop;
-	if (scrollY > bottomLeft) {
-		aboutAction("hide")
+function scrollAnim() {
+	var aboutInView = inView(aboutId);
+	var shopTitleInView = inView(shopTitleId);
+
+	if (aboutInView == false) {
+		elementHideOrShow(aboutHeadId, "hide");
+		elementHideOrShow(aboutContentId, "hide");
 	} else {
-		aboutAction("show");
+		elementHideOrShow(aboutHeadId, "");
+		elementHideOrShow(aboutContentId, "");
 	}
+
+	if (shopTitleInView == false) {
+		elementHideOrShow(shopTitleId, "hide");
+	} else {
+		elementHideOrShow(shopTitleId, "");
+	}
+
+	console.log("about: " + aboutInView);
+	console.log("shop title: " + shopTitleInView);
+}
+
+function inView(el) {
+	var rect = el.getBoundingClientRect();
+	
+	return (
+	rect.bottom >= 0 && rect.right >= 0 &&
+	rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+	rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+	);
 }
