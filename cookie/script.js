@@ -5,11 +5,13 @@ var aboutId = document.getElementById("about");
 var aboutHeadId = document.getElementById("aboutHead");
 var aboutContentId = document.getElementById("aboutContent");
 var shopTitleId = document.getElementById("shopTitle");
+var shopContentId = document.getElementById("shopContent");
+var cookiesBtnId = document.getElementsByClassName("cookieBtn");
+var cookieArrLen = cookiesBtnId.length;
 var pullTabWrapId = document.getElementById("pullTab-wrap");
 var pullTabIconId = document.getElementById("pullTabBtnIcon");
 var pullTabBtnId = document.getElementById("pullTabBtn");
 var scrollTimer = -1;
-
 
 // animate cookie icon when mousing over enter button
 enterBtnId.addEventListener("mouseover", function () {
@@ -23,8 +25,8 @@ enterBtnId.addEventListener("mouseout", function () {
 // closes welcome screen and re-enable scroll when enter button clicked
 enterBtnId.addEventListener("click", function() {
 	window.scrollTo(0,0);
-	elementHideOrShow(aboutHeadId, "hide");
-	elementHideOrShow(aboutContentId, "hide");
+	elementHideOrShow(aboutHeadId, false, true);
+	elementHideOrShow(aboutContentId, false, true);
 	pullTabIconId.className = "glyphicon glyphicon-remove img-responsive";
 	setTimeout(function () {
 		welcomeAction("open");
@@ -39,9 +41,9 @@ pullTabBtnId.addEventListener("click", function () {
 	}, 300);
 	setTimeout(function () {
 		window.scrollTo(0,0);
-		elementHideOrShow(aboutHeadId, "hide");
-		elementHideOrShow(aboutContentId, "hide");
-
+		elementHideOrShow(aboutHeadId, false, true);
+		elementHideOrShow(aboutContentId, false, true);
+		elementHideOrShow(shopTitleId, false, true);
 		pullTabWrapId.id = "pullTab-wrap";
 	}, 1000);
 });
@@ -80,8 +82,8 @@ function welcomeAction(action) {
 		enterBtnId.id = "enterBtn-final";
 		cookieId.id = "cookie-final";
 		setTimeout(function () {
-			elementHideOrShow(aboutHeadId, "");
-			elementHideOrShow(aboutContentId, "");
+			elementHideOrShow(aboutHeadId, false, false);
+			elementHideOrShow(aboutContentId, false, false);
 			pullTabWrapId.id = "pullTab-wrap-show"
 		}, 500);
 
@@ -94,41 +96,72 @@ function welcomeAction(action) {
 	}
 }
 
-function elementHideOrShow(element, action) {
-	if (action == "hide") {
-
-		element.className = element.className.replace('element-final-style' , 'element-init-style' );
-		// console.log("hide");
-		// console.log(element.className);
+// function applies hide or show animation to div
+function elementHideOrShow(element, isCookie, hide) {
+	if (isCookie == true) {
+		if (hide == true) {
+				// console.log("cookie hide");
+				// console.log(element.className);
+				element.className = element.className.replace('cookieShowUp' , 'cookieHide' );
+		} else {
+				// console.log("cookie show");
+				// console.log(element.className);
+				element.className = element.className.replace('cookieHide' , 'cookieShowUp' );
+		}
 	} else {
-		element.className = element.className.replace('element-init-style', 'element-final-style');
-		// console.log("show");
-		// console.log(element.className);
+		if (hide == true) {
+			element.className = element.className.replace('element-final-style' , 'element-init-style' );
+		} else {
+			element.className = element.className.replace('element-init-style', 'element-final-style');
+		}
 	}
 }
 
 function scrollAnim() {
+	var i = 0;
+
 	var aboutInView = inView(aboutId);
 	var shopTitleInView = inView(shopTitleId);
+	var shopContentInView = inView(shopContentId);
 
 	if (aboutInView == false) {
-		elementHideOrShow(aboutHeadId, "hide");
-		elementHideOrShow(aboutContentId, "hide");
+		elementHideOrShow(aboutHeadId, false, true);
+		elementHideOrShow(aboutContentId, false, true);
 	} else {
-		elementHideOrShow(aboutHeadId, "");
-		elementHideOrShow(aboutContentId, "");
+		elementHideOrShow(aboutHeadId, false, false);
+		elementHideOrShow(aboutContentId, false, false);
 	}
 
 	if (shopTitleInView == false) {
-		elementHideOrShow(shopTitleId, "hide");
+		elementHideOrShow(shopTitleId, false, true);
 	} else {
-		elementHideOrShow(shopTitleId, "");
+		elementHideOrShow(shopTitleId, false, false);
 	}
 
-	console.log("about: " + aboutInView);
-	console.log("shop title: " + shopTitleInView);
+	if (shopContentInView == false) {
+		(function loop(i) {
+			setTimeout(function () {
+				elementHideOrShow(cookiesBtnId[i], true, true);
+				i++;
+				if (i < cookieArrLen) {
+					loop(i);
+				}
+			}, 300);
+		})(i);
+	} else {
+		(function loop(i) {
+			setTimeout(function () {
+				elementHideOrShow(cookiesBtnId[i], true, false);
+				i++;
+				if (i < cookieArrLen) {
+					loop(i);
+				}
+			}, 300);
+		})(i);
+	}
 }
 
+// function checks if div element is in viewport or not
 function inView(el) {
 	var rect = el.getBoundingClientRect();
 	

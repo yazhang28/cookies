@@ -254,17 +254,23 @@ body {
 }
 
 .element-init-style {
-	opacity: 0;
 	margin-top: 5vh;
 }
 
-.element-final-style {
+.element-init-style {
+	opacity: 0;
+}
+
+.element-final-style, .cookieShowUp {
 	margin-top: 0;
+}
+
+.element-final-style {
 	opacity: 1;
-	-webkit-transition: opacity 0.6s, margin-top 0.6s;
-	-moz-transition: opacity 0.6s, margin-top 0.6s;
-	-o-transition: opacity 0.6s, margin-top 0.6s;
-	transition: opacity 0.6s, margin-top 0.6s;
+	-webkit-transition: opacity 0.8s, margin-top 0.8s;
+	-moz-transition: opacity 0.8s, margin-top 0.8s;
+	-o-transition: opacity 0.8s, margin-top 0.8s;
+	transition: opacity 0.8s, margin-top 0.8s;
 }
 
 #aboutContent {
@@ -280,6 +286,32 @@ body {
 	background-color: #973131;
 	color: wheat;
 	/*position: relative;*/
+}
+
+.cookieHide {
+	margin-top: 15vh;
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition: margin-top .8s, transform 0.4s ease-in;
+	-moz-transition: margin-top .8s, transform 0.4s ease-in;
+	-o-transition: margin-top .8s, transform 0.4s ease-in;
+	transition: margin-top .8s, transform 0.4s ease-in;
+}
+
+.cookieShowUp {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+
+	-webkit-transition: margin-top .8s, transform 0.4s ease-in;
+	-moz-transition: margin-top .8s, transform 0.4s ease-in;
+	-o-transition: margin-top .8s, transform 0.4s ease-in;
+	transition: margin-top .8s, transform 0.4s ease-in;
 }
 
 .cookieBtn, .cookieBtn:active {
