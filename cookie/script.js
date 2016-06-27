@@ -1,17 +1,53 @@
 var enterBtnId = document.getElementById("enterBtn");
 var cookieId = document.getElementById("cookie");
 var welcomeScreenId = document.getElementById("welcomeScreen-init");
+
 var aboutId = document.getElementById("about");
 var aboutHeadId = document.getElementById("aboutHead");
 var aboutContentId = document.getElementById("aboutContent");
+
 var shopTitleId = document.getElementById("shopTitle");
 var shopContentId = document.getElementById("shopContent");
 var cookiesBtnId = document.getElementsByClassName("cookieBtn");
-var cookieArrLen = cookiesBtnId.length;
+
+var cookiesBtnTxtId = document.getElementsByClassName("btnTxt");
+var NavBtnLeftId = document.getElementById("upBtn");
+var NavBtnRightId = document.getElementById("downBtn");
+var currentRowIndex = 0;
+
 var pullTabWrapId = document.getElementById("pullTab-wrap");
 var pullTabIconId = document.getElementById("pullTabBtnIcon");
 var pullTabBtnId = document.getElementById("pullTabBtn");
 var scrollTimer = -1;
+
+var row1 = {
+	one: "White </br> Chocolate Chip",
+	two: "Chocolate Chip </br> with Walnuts",
+	three: "Chocolate Chip"
+};
+
+var row2 = {
+	one: "White Chocolate </br> Macadamia Nut",
+	two: "Peanut Butter </br> Chocolate Chip",
+	three: "Peanut Butter"
+};
+
+var row3 = {
+	one: "Chocolate </br> Macadamia Nut",
+	two: "Sugar",
+	three: "Oatmeal Raisin"
+};
+
+var row4 = {
+	one: "Butter Almond",
+	two: "Chocolate Pecan",
+	three: "Snickerdoodle"
+};
+
+var rows = [row1, row2, row3, row4];
+
+// matrix of which cookie buttons to hide when a cookie button is clicked
+var cookiebtnClicked = [[1,2],[0,2],[0,1]];
 
 // animate cookie icon when mousing over enter button
 enterBtnId.addEventListener("mouseover", function () {
@@ -52,7 +88,6 @@ pullTabBtnId.addEventListener("click", function () {
 // check if element is in viewport and apply appropriate animation
 window.addEventListener("scroll", function () {
 	pullTabWrapId.id = "pullTab-wrap";
-
 	scrollAnim();
 
 	// check if user stop scrolling
@@ -100,12 +135,8 @@ function welcomeAction(action) {
 function elementHideOrShow(element, isCookie, hide) {
 	if (isCookie == true) {
 		if (hide == true) {
-				// console.log("cookie hide");
-				// console.log(element.className);
 				element.className = element.className.replace('cookieShowUp' , 'cookieHide' );
 		} else {
-				// console.log("cookie show");
-				// console.log(element.className);
 				element.className = element.className.replace('cookieHide' , 'cookieShowUp' );
 		}
 	} else {
@@ -118,8 +149,6 @@ function elementHideOrShow(element, isCookie, hide) {
 }
 
 function scrollAnim() {
-	var i = 0;
-
 	var aboutInView = inView(aboutId);
 	var shopTitleInView = inView(shopTitleId);
 	var shopContentInView = inView(shopContentId);
@@ -139,26 +168,76 @@ function scrollAnim() {
 	}
 
 	if (shopContentInView == false) {
-		(function loop(i) {
-			setTimeout(function () {
-				elementHideOrShow(cookiesBtnId[i], true, true);
-				i++;
-				if (i < cookieArrLen) {
-					loop(i);
-				}
-			}, 300);
-		})(i);
+		loopDelay(0, true);
 	} else {
-		(function loop(i) {
-			setTimeout(function () {
-				elementHideOrShow(cookiesBtnId[i], true, false);
-				i++;
-				if (i < cookieArrLen) {
-					loop(i);
-				}
-			}, 300);
-		})(i);
+		loopDelay(0, false);
 	}
+}
+
+// function loops through cookie btn ids to hide or show in sequence
+function loopDelay(i, hide) {
+	setTimeout(function () {
+		elementHideOrShow(cookiesBtnId[i], true, hide);
+		i++;
+		if (i < 3) {
+			loopDelay(i, hide);
+		}
+	}, 300);
+}
+
+// when up cookie nav button is clicked
+NavBtnLeftId.addEventListener("click", function () {
+	navClicked(true);
+});
+
+// when down cookie nav button is clicked
+NavBtnRightId.addEventListener("click", function () {
+	navClicked(false);
+});
+
+// when user clicks up down nav button, hides current row of cookies and cycles to next row
+function navClicked(up) {
+	loopDelay(0,true);
+	setTimeout(function () {
+		setTimeout(function () {
+			cycleCookies(up);
+		}, 630);
+		loopDelay(0,false);
+	}, 700);
+}
+
+// change text of cookie buttons to imitate cycling
+function cycleCookies(up) {
+	if (up == true) {
+		if (currentRowIndex == 3) {
+			currentRowIndex = 0;
+		} else {
+			currentRowIndex++;
+		}
+	} else {
+		if (currentRowIndex == 0) {
+			currentRowIndex = 3;
+		} else {
+			currentRowIndex--;
+		}
+	}
+
+	cookiesBtnTxtId[0].innerHTML = rows[currentRowIndex].one;
+	cookiesBtnTxtId[1].innerHTML = rows[currentRowIndex].two;
+	cookiesBtnTxtId[2].innerHTML = rows[currentRowIndex].three;
+}
+
+// cookie button when clicked hides all other cookie buttons
+for (var row = 0; row < 3; row++) {
+	var hide = 0;
+	(function (row) {
+		cookiesBtnId[row].addEventListener("click", function () {
+			for (var col = 0; col < 2; col++) {
+				hide = cookiebtnClicked[row][col];
+				elementHideOrShow(cookiesBtnId[hide],true,true);
+			}
+		});
+	})(row);
 }
 
 // function checks if div element is in viewport or not
