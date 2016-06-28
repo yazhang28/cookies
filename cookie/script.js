@@ -203,7 +203,7 @@ function navClicked(up) {
 			cycleCookies(up);
 		}, 455);
 		loopDelay(0,false);
-	}, 1000);
+	}, 650);
 }
 
 // change text of cookie buttons to imitate cycling
