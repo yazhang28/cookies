@@ -201,9 +201,9 @@ function navClicked(up) {
 	setTimeout(function () {
 		setTimeout(function () {
 			cycleCookies(up);
-		}, 630);
+		}, 455);
 		loopDelay(0,false);
-	}, 700);
+	}, 1000);
 }
 
 // change text of cookie buttons to imitate cycling

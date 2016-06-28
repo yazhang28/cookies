@@ -291,14 +291,21 @@ body {
 	from {
 		margin-top: 5vh;
 	}
-	to {
-		margin-top: 0;
-	}
-	80% {
-		margin-top: -5vh;
+	65% {
+		margin-top: -3vh;
+		-webkit-transform: scale(1.05);
+		-moz-transform: scale(1.05);
+		-ms-transform: scale(1.05);
+		-o-transform: scale(1.05);
+		transform: scale(1.05);
 	}
 	95% {
 		margin-top: 0;
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transform: scale(1);
 	}
 }
 
@@ -308,9 +315,19 @@ body {
 	}
 	to {
 		margin-top: 5vh;
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transform: scale(1);
 	}
-	10% {
-		margin-top: -5vh;
+	30% {
+		margin-top: -3vh;
+		-webkit-transform: scale(1.05);
+		-moz-transform: scale(1.05);
+		-ms-transform: scale(1.05);
+		-o-transform: scale(1.05);
+		transform: scale(1.05);
 	}
 }
 .cookieHide, .cookieShowUp {
@@ -319,10 +336,15 @@ body {
 	-o-animation-duration: 1s;
 	animation-duration: 1s;
 
-	-webkit-transition: opacity 0.5s;
-	-moz-transition: opacity 0.5s;
-	-o-transition: opacity 0.5s;
-	transition: opacity 0.5s;
+	-webkit-animation-timing-function: ease-in-out;
+	-moz-animation-timing-function: ease-in-out;
+	-o-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+
+	-webkit-transition: color 0.5s, opacity 1s;
+	-moz-transition: color 0.5s, opacity 1s;
+	-o-transition: color 0.5s, opacity 1s;
+	transition: color 0.5s, opacity 1s;
 }
 
 .cookieHide {
