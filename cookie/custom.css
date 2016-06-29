@@ -287,27 +287,51 @@ body {
 	/*position: relative;*/
 }
 
-@-webkit-keyframes cookieshowanim {
+@-webkit-keyframes shopBtnShowAnim {
 	from {
-		margin-top: 5vh;
+		-webkit-transform: scale(0);
+		-moz-transform: scale(0);
+		-ms-transform: scale(0);
+		-o-transform: scale(0);
+		transform: scale(0);
 	}
-	65% {
-		margin-top: -3vh;
+	to {
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transform: scale(1);
 	}
-	95% {
-		margin-top: 0;
+	85% {
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		transform: scale(1.1);
 	}
 }
 
-@-webkit-keyframes cookiehideanim {
+@-webkit-keyframes shopBtnHideAnim {
 	from {
-		margin-top: 0;
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transform: scale(1);
 	}
 	to {
-		margin-top: 5vh;
+		-webkit-transform: scale(0);
+		-moz-transform: scale(0);
+		-ms-transform: scale(0);
+		-o-transform: scale(0);
+		transform: scale(0);
 	}
 	15% {
-		margin-top: -3vh;
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		transform: scale(1.1);
 	}
 }
 .cookieHide, .cookieShowUp {
@@ -333,22 +357,17 @@ body {
 	-ms-transform: scale(0);
 	-o-transform: scale(0);
 	transform: scale(0);
-	-webkit-animation-name: cookiehideanim;
-	-moz-animation-name: cookiehideanim;
-	-o-animation-name: cookiehideanim;
-	animation-name: cookiehideanim;
+	-webkit-animation-name: shopBtnHideAnim;
+	-moz-animation-name: shopBtnHideAnim;
+	-o-animation-name: shopBtnHideAnim;
+	animation-name: shopBtnHideAnim;
 }
 
-.cookieShowUp {
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-ms-transform: scale(1);
-	-o-transform: scale(1);
-	transform: scale(1);
-	-webkit-animation-name: cookieshowanim;
-	-moz-animation-name: cookieshowanim;
-	-o-animation-name: cookieshowanim;
-	animation-name: cookieshowanim;
+.cookieShowUp{
+	-webkit-animation-name: shopBtnShowAnim;
+	-moz-animation-name: shopBtnShowAnim;
+	-o-animation-name: shopBtnShowAnim;
+	animation-name: shopBtnShowAnim;
 }
 
 .cookieBtn, .cookieBtn:active {
@@ -381,7 +400,7 @@ body {
 	position: relative;
 }
 
-#upBtn, #downBtn {
+#upBtn, #downBtn, #closeBtn {
 	position: absolute;
 	padding: 3vh;
 }

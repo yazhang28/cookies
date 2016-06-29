@@ -13,7 +13,9 @@ var cookiesBtnId = document.getElementsByClassName("cookieBtn");
 var cookiesBtnTxtId = document.getElementsByClassName("btnTxt");
 var NavBtnLeftId = document.getElementById("upBtn");
 var NavBtnRightId = document.getElementById("downBtn");
+var closeBtnId = document.getElementById("closeBtn");
 var currentRowIndex = 0;
+var hide = 0;
 
 var pullTabWrapId = document.getElementById("pullTab-wrap");
 var pullTabIconId = document.getElementById("pullTabBtnIcon");
@@ -182,7 +184,7 @@ function loopDelay(i, hide) {
 		if (i < 3) {
 			loopDelay(i, hide);
 		}
-	}, 300);
+	}, 200);
 }
 
 // when up cookie nav button is clicked
@@ -195,15 +197,23 @@ NavBtnRightId.addEventListener("click", function () {
 	navClicked(false);
 });
 
+// when back button selected displays nav buttons and previous cookies
+closeBtnId.addEventListener("click", function () {
+	elementHideOrShow(NavBtnLeftId,true,false);
+	elementHideOrShow(NavBtnRightId,true,false);
+	elementHideOrShow(closeBtnId,true,true);
+	loopDelay(0,false);
+});
+
 // when user clicks up down nav button, hides current row of cookies and cycles to next row
 function navClicked(up) {
 	loopDelay(0,true);
 	setTimeout(function () {
 		setTimeout(function () {
 			cycleCookies(up);
-		}, 455);
+		}, 500);
 		loopDelay(0,false);
-	}, 650);
+	}, 1000);
 }
 
 // change text of cookie buttons to imitate cycling
@@ -227,14 +237,17 @@ function cycleCookies(up) {
 	cookiesBtnTxtId[2].innerHTML = rows[currentRowIndex].three;
 }
 
-// cookie button when clicked hides all other cookie buttons
+// cookie button when clicked hides all other cookie buttons, nav buttons and displays back button
 for (var row = 0; row < 3; row++) {
-	var hide = 0;
+	// var hide = 0;
 	(function (row) {
 		cookiesBtnId[row].addEventListener("click", function () {
 			for (var col = 0; col < 2; col++) {
 				hide = cookiebtnClicked[row][col];
 				elementHideOrShow(cookiesBtnId[hide],true,true);
+				elementHideOrShow(NavBtnLeftId,true,true);
+				elementHideOrShow(NavBtnRightId,true,true);
+				elementHideOrShow(closeBtnId,true,false);
 			}
 		});
 	})(row);
