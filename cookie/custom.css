@@ -216,15 +216,6 @@ body {
 	top: 100%;
 }
 
-/* doesnt work*/
-/*#enterBtn-final, #cookie-final {*/
-	/*-webkit-transition: opacity 0.6s;*/
-	/*-moz-transition: opacity 0.6s;*/
-	/*-o-transition: opacity 0.6s;*/
-	/*transition: opacity 0.6s;*/
-/*}*/
-
-
 #landingPage {
 	font-family: 'Playfair Display', serif;
 }
@@ -252,27 +243,24 @@ body {
 	color: #4b2f2f;
 }
 
-.element-init-style {
-	margin-top: 5vh;
-}
-
-.element-init-style {
-	opacity: 0;
-}
-
-.element-final-style, .cookieShowUp {
-	margin-top: 0;
-}
-
-.element-final-style {
-	opacity: 1;
+.element-init-style, .element-final-style {
 	-webkit-transition: opacity 0.8s, margin-top 0.8s;
 	-moz-transition: opacity 0.8s, margin-top 0.8s;
 	-o-transition: opacity 0.8s, margin-top 0.8s;
 	transition: opacity 0.8s, margin-top 0.8s;
 }
 
-#aboutContent {
+.element-init-style {
+	margin-top: 5vh;
+	opacity: 0;
+}
+
+.element-final-style {
+	opacity: 1;
+	margin-top: 0;
+}
+
+#aboutContent, #cookieDis {
 	-webkit-transition-delay: 0.4s;
 	-moz-transition-delay: 0.4s;
 	-o-transition-delay: 0.4s;
@@ -371,6 +359,7 @@ body {
 }
 
 .cookieBtn, .cookieBtn:active {
+
 	box-shadow: 0 5px #831D1D;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
@@ -401,12 +390,12 @@ body {
 }
 
 #upBtn, #downBtn, #closeBtn {
-	position: absolute;
-	padding: 3vh;
+	/*position: absolute;*/
+	padding: 2vh;
 }
 
-#downBtn {
-	left:0;
+#closeBtn:focus {
+	outline:none;
 }
 
 .upDownBtn:hover {
@@ -431,40 +420,49 @@ body {
 	position: relative;
 }
 
+.hideCol {
+	display: none;
+}
+
+.showCol {
+	display: block;
+}
+
 /* for testing */
+
+.filler {
+	font-size: 3vh;
+}
+
 /*#extraOneScreen {*/
-	/*height: 100vh;*/
+/*height: 100vh;*/
 /*}*/
 
-/*.filler {*/
-	/*font-size: 3vh;*/
-/*}*/
+.row-borders-about {
+	border: solid aqua;
+}
 
-/*.row-borders-about {*/
-	/*border: solid aqua;*/
-/*}*/
+.row-borders-shop {
+	border: solid black;
+}
 
-/*.row-borders-shop {*/
-	/*border: solid black;*/
-/*}*/
+.borders-content {
+	border: solid teal;
+}
+.borders-content-2 {
+	border: solid indigo;
+}
 
-/*.borders-content {*/
-	/*border: solid teal;*/
-/*}*/
-/*.borders-content-2 {*/
-	/*border: solid indigo;*/
-/*}*/
+.borders-head {
+	border: solid #ff76df
+}
 
-/*.borders-head {*/
-	/*border: solid #ff76df*/
-/*}*/
+.row-borders-nav{
+	border: solid coral;
+}
 
-/*.row-borders-nav{*/
-	/*border: solid coral;*/
-/*}*/
-
-/*.borders-button {*/
-	/*border: solid gold;*/
-/*}*/
+.borders-button {
+	border: solid gold;
+}
 
 /* for testing */

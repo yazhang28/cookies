@@ -8,15 +8,23 @@ var aboutContentId = document.getElementById("aboutContent");
 
 var shopTitleId = document.getElementById("shopTitle");
 var shopContentId = document.getElementById("shopContent");
-var cookiesBtnId = document.getElementsByClassName("cookieBtn");
 
+var cookiesBtnId = document.getElementsByClassName("cookieBtn");
 var cookiesBtnTxtId = document.getElementsByClassName("btnTxt");
+
 var NavBtnLeftId = document.getElementById("upBtn");
 var NavBtnRightId = document.getElementById("downBtn");
 var closeBtnId = document.getElementById("closeBtn");
 var currentRowIndex = 0;
 var hide = 0;
 
+var colsId = document.getElementsByClassName("tableCol");
+var gap2Id = document.getElementById("gap2");
+var gap3Id = document.getElementById("gap3");
+var cookieDisId = document.getElementById("cookieDis");
+
+// colVisible used to stop inView from being called until the cookie description column is visible
+var colVisible = false;
 var pullTabWrapId = document.getElementById("pullTab-wrap");
 var pullTabIconId = document.getElementById("pullTabBtnIcon");
 var pullTabBtnId = document.getElementById("pullTabBtn");
@@ -150,10 +158,35 @@ function elementHideOrShow(element, isCookie, hide) {
 	}
 }
 
+// function re-positions columns to reveal cookie description column
+function hideCol(element,hide){
+	if (hide == true) {
+		setTimeout(function () {
+			colsId[3].className = colsId[3].className.replace('hideCol', 'showCol');
+			setTimeout(function () {
+				colVisible = true;
+				elementHideOrShow(cookieDisId,false,false);
+				elementHideOrShow(cookiesBtnId[row],true,true);
+			}, 100);
+			gap2Id.className = gap2Id.className.replace('showCol', 'hideCol');
+			gap3Id.className = gap3Id.className.replace('showCol', 'hideCol');
+			element.className = element.className.replace('showCol', 'hideCol');
+		}, 900);
+	} else {
+		setTimeout(function () {
+			colsId[3].className = colsId[3].className.replace('showCol', 'hideCol');
+			gap2Id.className = gap2Id.className.replace('hideCol', 'showCol');
+			gap3Id.className = gap3Id.className.replace('hideCol', 'showCol');
+			element.className = element.className.replace('hideCol', 'showCol');
+		}, 900);
+	}
+}
+
 function scrollAnim() {
 	var aboutInView = inView(aboutId);
 	var shopTitleInView = inView(shopTitleId);
 	var shopContentInView = inView(shopContentId);
+	var cookieDisInView = inView(cookieDisId);
 
 	if (aboutInView == false) {
 		elementHideOrShow(aboutHeadId, false, true);
@@ -173,6 +206,13 @@ function scrollAnim() {
 		loopDelay(0, true);
 	} else {
 		loopDelay(0, false);
+	}
+	if (colVisible == true) {
+		if (cookieDisInView == false) {
+			elementHideOrShow(cookieDisId, false, true);
+		} else {
+			elementHideOrShow(cookieDisId, false, false);
+		}
 	}
 }
 
@@ -201,7 +241,12 @@ NavBtnRightId.addEventListener("click", function () {
 closeBtnId.addEventListener("click", function () {
 	elementHideOrShow(NavBtnLeftId,true,false);
 	elementHideOrShow(NavBtnRightId,true,false);
+	elementHideOrShow(cookieDisId,false,true);
 	elementHideOrShow(closeBtnId,true,true);
+	colVisible = false;
+	for (var i = 0; i < 3; i++) {
+		hideCol(colsId[i], false);
+	}
 	loopDelay(0,false);
 });
 
@@ -239,12 +284,12 @@ function cycleCookies(up) {
 
 // cookie button when clicked hides all other cookie buttons, nav buttons and displays back button
 for (var row = 0; row < 3; row++) {
-	// var hide = 0;
 	(function (row) {
 		cookiesBtnId[row].addEventListener("click", function () {
 			for (var col = 0; col < 2; col++) {
 				hide = cookiebtnClicked[row][col];
 				elementHideOrShow(cookiesBtnId[hide],true,true);
+				hideCol(colsId[hide],true);
 				elementHideOrShow(NavBtnLeftId,true,true);
 				elementHideOrShow(NavBtnRightId,true,true);
 				elementHideOrShow(closeBtnId,true,false);
