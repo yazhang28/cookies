@@ -4,10 +4,6 @@ var welcomeScreenId = document.getElementById("welcomeScreen-init");
 
 var contactBtn = document.getElementById("contact");
 var infoId = document.getElementById("info");
-contactBtn.onclick = function () {
-	contactBtn.classList.toggle("active");
-	infoId.classList.toggle("show");
-};
 
 var pullTabWrapId = document.getElementById("pullTab-wrap");
 var pullTabIconId = document.getElementById("pullTabBtnIcon");
@@ -84,6 +80,11 @@ enterBtnId.addEventListener("mouseover", function () {
 enterBtnId.addEventListener("mouseout", function () {
 	cookieAnim("cookie");
 });
+
+contactBtn.onclick = function () {
+	contactBtn.classList.toggle("active");
+	infoId.classList.toggle("show");
+};
 
 // closes welcome screen and re-enable scroll when enter button clicked
 enterBtnId.addEventListener("click", function() {

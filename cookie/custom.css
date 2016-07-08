@@ -44,7 +44,6 @@ body {
 
 /* buttons */
 .cookieBtn, .btn-3d, #pullTabBtn, #contact {
-	/*color: wheat;*/
 	-webkit-transition: color 0.5s;
 	-moz-transition: color 0.5s;
 	-o-transition: color 0.5s;
@@ -85,6 +84,11 @@ body {
 	letter-spacing: 2px;
 }
 
+#pullTabBtn {
+	border-bottom-right-radius: 90px;
+	border-bottom-left-radius: 90px;
+}
+
 #contact {
 	padding: 2vh;
 }
@@ -92,13 +96,13 @@ body {
 #contact:before {
 	content: '\02795';
 	float: left;
-	margin-right: 15px;
+	margin-right: 3vh;
 }
 
 #contact:after {
 	content: '\02795';
 	float: right;
-	margin-left: 15px;
+	margin-left: 3vh;
 }
 
 #contact.active:before {
@@ -218,7 +222,7 @@ body {
 #info {
 	max-height: 0;
 	overflow: hidden;
-	transition: 0.6s ease-in-out;
+	transition: 0.5s ease-in-out;
 	opacity: 0;
 }
 
@@ -227,35 +231,31 @@ body {
 	max-height: 19vh;
 }
 
-#pullTab-wrap, #pullTab-wrap-show, #pullTab-wrap-final, #bottomNav {
+#pullTabBtn, #bottomNav {
 	background-color: #4b2f2f;
 }
 
+
 #pullTab-wrap, #pullTab-wrap-show {
-	-webkit-transition: height 0.3s;
-	-moz-transition: height 0.3s;
-	-o-transition: height 0.3s;
-	transition: height 0.3s;
+	-webkit-transition: max-height 0.4s ease-in-out;
+	-moz-transition: max-height 0.4s ease-in-out;
+	-o-transition: max-height 0.4s ease-in-out;
+	transition: max-height 0.4s ease-in-out;
 }
 
 #pullTab-wrap, #pullTab-wrap-show, #pullTab-wrap-final{
 	position: fixed;
 	z-index: 1;
 	overflow-y: hidden;
-	border-bottom-right-radius: 80px;
-	border-bottom-left-radius: 80px;
 	top: 0;
-	/* centering element */
-	left: 50%;
-	transform: translate(-50%, 0);
 }
 
 #pullTab-wrap {
-	height: 0;
+	max-height: 0;
 }
 
 #pullTab-wrap-show {
-	height: 6%;
+	max-height: 7%;
 }
 
 #pullTab-wrap-final {
@@ -283,7 +283,6 @@ body {
 }
 
 /* about */
-
 #row-about {
 	background-color: wheat;
 	color: #4b2f2f;
@@ -314,7 +313,6 @@ body {
 }
 
 /* shop */
-
 #row-shop {
 	background-color: #973131;
 	color: wheat;
