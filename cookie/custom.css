@@ -1,6 +1,7 @@
 /* disable scrolling behind overlay */
 body {
 	overflow: hidden;
+	font-size: 2vh;
 }
 
 .overlay {
@@ -16,7 +17,6 @@ body {
 }
 
 /* transition delay 0.2 */
-
 #enterBtn-final, #cookie-final, #cookie, #cookie-anim, #aboutHead-final {
 	-webkit-transition-delay: 0.2s;
 	-moz-transition-delay: 0.2s;
@@ -25,7 +25,6 @@ body {
 }
 
 /* transition time function */
-
 #pullTab-wrap, #pullTab-wrap-show, #pullTab-wrap-final, #welcomeScreen-init, #welcomeScreen-final {
 	-webkit-transition-timing-function: ease-out;
 	-moz-transition-timing-function: ease-out;
@@ -34,21 +33,26 @@ body {
 }
 
 /* text decoration: none */
-
-#pullTabBtn {
+#pullTabBtn, #contact {
 	text-decoration: none;
 }
 
-/* buttons */
-.cookieBtn, .btn-3d, #pullTabBtn {
+/* text color: wheat */
+.cookieBtn, .btn-3d, #pullTabBtn, #bottomNav, #contact {
 	color: wheat;
+}
+
+/* buttons */
+.cookieBtn, .btn-3d, #pullTabBtn, #contact {
+	/*color: wheat;*/
 	-webkit-transition: color 0.5s;
 	-moz-transition: color 0.5s;
 	-o-transition: color 0.5s;
 	transition: color 0.5s;
 }
 
-.cookieBtn:hover, .cookieBtn:focus, .btn-3d:hover, .btn-3d:focus, #pullTabBtn:hover, #pullTabBtn:focus{
+.btn-3d:focus, .cookieBtn:focus, #pullTabBtn:focus, .cookieBtn:hover, .btn-3d:hover, #pullTabBtn:hover, #contact:hover, #contact:focus{
+	outline:none;
 	color: #B75151;
 }
 
@@ -75,14 +79,37 @@ body {
 	transition: transform 0.2s, box-shadow 0.2s, color 0.5s;
 }
 
-.btn-3d, .cookieBtn {
+.btn-3d, .cookieBtn, #contact {
 	font-size: 2vh;
 	font-weight: bold;
 	letter-spacing: 2px;
 }
 
-/* padding & margins */
+#contact {
+	padding: 2vh;
+}
 
+#contact:before {
+	content: '\02795';
+	float: left;
+	margin-right: 15px;
+}
+
+#contact:after {
+	content: '\02795';
+	float: right;
+	margin-left: 15px;
+}
+
+#contact.active:before {
+	content: "\2796";
+}
+
+#contact.active:after {
+	content: "\2796";
+}
+
+/* padding & margins */
 .tpad-20 {
 	padding-top: 20vh;
 }
@@ -124,7 +151,6 @@ body {
 }
 
 /* welcome screen */
-
 #welcomeScreen-init, #welcomeScreen-final, #pullTab-wrap-final{
 	-webkit-transition: 0.8s;
 	-moz-transition: 0.8s;
@@ -183,6 +209,27 @@ body {
 }
 
 /* landing page */
+#bottomNav {
+	position: fixed;
+	z-index: 1;
+	bottom: 0;
+}
+
+#info {
+	max-height: 0;
+	overflow: hidden;
+	transition: 0.6s ease-in-out;
+	opacity: 0;
+}
+
+#info.show{
+	opacity: 1;
+	max-height: 12vh;
+}
+
+#pullTab-wrap, #pullTab-wrap-show, #pullTab-wrap-final, #bottomNav {
+	background-color: #4b2f2f;
+}
 
 #pullTab-wrap, #pullTab-wrap-show {
 	-webkit-transition: height 0.3s;
@@ -195,7 +242,6 @@ body {
 	position: fixed;
 	z-index: 1;
 	overflow-y: hidden;
-	background: #4b2f2f;
 	border-bottom-right-radius: 80px;
 	border-bottom-left-radius: 80px;
 	top: 0;
@@ -389,15 +435,6 @@ body {
 	position: relative;
 }
 
-#upBtn, #downBtn, #closeBtn {
-	/*position: absolute;*/
-	padding: 2vh;
-}
-
-#closeBtn:focus {
-	outline:none;
-}
-
 .upDownBtn:hover {
 	box-shadow: 0 3px #831D1D;
 }
@@ -407,6 +444,7 @@ body {
 }
 
 .upDownBtn {
+	padding: 2vh;
 	box-shadow: 0 5px #831D1D;
 	border-radius: 90px 90px 90px 90px;
 }
@@ -430,39 +468,42 @@ body {
 
 /* for testing */
 
-.filler {
-	font-size: 3vh;
-}
+/*.filler {*/
+	/*font-size: 3vh;*/
+/*}*/
 
 /*#extraOneScreen {*/
 /*height: 100vh;*/
 /*}*/
 
-.row-borders-about {
-	border: solid aqua;
-}
+/*.row-borders-about {*/
+	/*border: solid aqua;*/
+/*}*/
 
-.row-borders-shop {
-	border: solid black;
-}
+/*.row-borders-shop {*/
+	/*border: solid black;*/
+/*}*/
 
-.borders-content {
-	border: solid teal;
-}
-.borders-content-2 {
-	border: solid indigo;
-}
+/*.row-borders-bot {*/
+	/*border: solid #791313;*/
+/*}*/
+/*.borders-content {*/
+	/*border: solid teal;*/
+/*}*/
+/*.borders-content-2 {*/
+	/*border: solid indigo;*/
+/*}*/
 
-.borders-head {
-	border: solid #ff76df
-}
+/*.borders-head {*/
+	/*border: solid #ff76df*/
+/*}*/
 
-.row-borders-nav{
-	border: solid coral;
-}
+/*.row-borders-nav{*/
+	/*border: solid coral;*/
+/*}*/
 
-.borders-button {
-	border: solid gold;
-}
+/*.borders-button {*/
+	/*border: solid gold;*/
+/*}*/
 
 /* for testing */

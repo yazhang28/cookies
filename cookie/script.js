@@ -2,6 +2,17 @@ var enterBtnId = document.getElementById("enterBtn");
 var cookieId = document.getElementById("cookie");
 var welcomeScreenId = document.getElementById("welcomeScreen-init");
 
+var contactBtn = document.getElementById("contact");
+var infoId = document.getElementById("info");
+contactBtn.onclick = function () {
+	contactBtn.classList.toggle("active");
+	infoId.classList.toggle("show");
+};
+
+var pullTabWrapId = document.getElementById("pullTab-wrap");
+var pullTabIconId = document.getElementById("pullTabBtnIcon");
+var pullTabBtnId = document.getElementById("pullTabBtn");
+
 var aboutId = document.getElementById("about");
 var aboutHeadId = document.getElementById("aboutHead");
 var aboutContentId = document.getElementById("aboutContent");
@@ -31,9 +42,6 @@ var row4Dis = document.getElementsByClassName("row4");
 
 // colVisible used to stop inView from being called until the cookie description column is visible
 var colVisible = false;
-var pullTabWrapId = document.getElementById("pullTab-wrap");
-var pullTabIconId = document.getElementById("pullTabBtnIcon");
-var pullTabBtnId = document.getElementById("pullTabBtn");
 var scrollTimer = -1;
 
 var row1 = {
@@ -106,6 +114,9 @@ pullTabBtnId.addEventListener("click", function () {
 
 // check if element is in viewport and apply appropriate animation
 window.addEventListener("scroll", function () {
+	contactBtn.classList.remove("active");
+	infoId.classList.remove("show");
+
 	pullTabWrapId.id = "pullTab-wrap";
 	scrollAnim();
 
