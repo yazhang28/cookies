@@ -1,7 +1,6 @@
 /* disable scrolling behind overlay */
 body {
 	overflow: hidden;
-	font-size: 2vh;
 }
 
 .overlay {
@@ -42,6 +41,26 @@ body {
 	color: wheat;
 }
 
+/* font size: 2vh */
+.btn-3d, .cookieBtn, #contact, #info {
+	font-size: 2vh;
+}
+
+/* font size: 3vh */
+.content {
+	font-size: 3vh;
+}
+
+/* word spacing: 5px; */
+#info, .content, .header-style {
+	word-spacing: 5px;
+}
+
+/* letter spacing: 2px */
+.btn-3d, .cookieBtn, #contact, #info, .content {
+	letter-spacing: 2px;
+}
+
 /* buttons */
 .cookieBtn, .btn-3d, #pullTabBtn, #contact {
 	-webkit-transition: color 0.5s;
@@ -79,11 +98,8 @@ body {
 }
 
 .btn-3d, .cookieBtn, #contact {
-	font-size: 2vh;
 	font-weight: bold;
-	letter-spacing: 2px;
 }
-
 #pullTabBtn {
 	border-bottom-right-radius: 90px;
 	border-bottom-left-radius: 90px;
@@ -262,20 +278,13 @@ body {
 	top: 100%;
 }
 
-#landingPage {
+#landingPage, #info {
 	font-family: 'Playfair Display', serif;
 }
 
 .header-style {
 	font-size: 10vh;
 	letter-spacing: -5px;
-	word-spacing: 5px;
-}
-
-.content {
-	font-size: 3vh;
-	letter-spacing: 2px;
-	word-spacing: 5px;
 }
 
 #row-about, #row-shop {
