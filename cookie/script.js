@@ -28,49 +28,72 @@ var hide = 0;
 var colsId = document.getElementsByClassName("tableCol");
 var gap2Id = document.getElementById("gap2");
 var gap3Id = document.getElementById("gap3");
-var cookieDisId = document.getElementById("cookieDis");
+var cookieDisId = document.getElementById("disWrap");
 var cookieDes;
+var cookieIngred;
 
 var row1Dis = document.getElementsByClassName("row1");
 var row2Dis = document.getElementsByClassName("row2");
 var row3Dis = document.getElementsByClassName("row3");
 var row4Dis = document.getElementsByClassName("row4");
 
+var row1Ingred = document.getElementsByClassName("row1i");
+var row2Ingred = document.getElementsByClassName("row2i");
+var row3Ingred = document.getElementsByClassName("row3i");
+var row4Ingred = document.getElementsByClassName("row4i");
+
 // colVisible used to stop inView from being called until the cookie description column is visible
 var colVisible = false;
 var scrollTimer = -1;
 
 var row1 = {
-	one: "White </br> Chocolate Chip",
-	two: "Chocolate Chip </br> with Walnuts",
-	three: "Chocolate Chip"
+	one: "Chocolate Chip",
+	two: "Toffee Crunch",
+	three: "Oatmeal Raisin</br>w/Pecans"
 };
 
 var row2 = {
-	one: "White Chocolate </br> Macadamia Nut",
-	two: "Peanut Butter </br> Chocolate Chip",
-	three: "Peanut Butter"
-};
-
-var row3 = {
-	one: "Chocolate </br> Macadamia Nut",
-	two: "Sugar",
-	three: "Oatmeal Raisin"
-};
-
-var row4 = {
-	one: "Butter Almond",
-	two: "Chocolate Pecan",
+	one: "Old-Fashioned</br>Sugar",
+	two: "Peanut Butter</br>Combo",
 	three: "Snickerdoodle"
 };
 
-// array of cookie descriptions
+var row3 = {
+	one: "Kitchen Sink",
+	two: "Chocolate Chip</br>w/Walnuts",
+	three: "Oatmeal Chocolate</br>Cherry"
+};
+
+var row4 = {
+	one: "Brownie Cookie",
+	two: "Milk Chocolate</br>Chunk",
+	three: "Toffee Fudge</br>Brownie"
+};
+
+// array of cookie descriptions and ingredients
 var rowsDes = [row1Dis, row2Dis, row3Dis, row4Dis];
 var currentRowDes = rowsDes[0];
+
+var rowsIngred = [row1Ingred, row2Ingred, row3Ingred, row4Ingred];
+var currentRowIngred = rowsIngred[0];
 var rows = [row1, row2, row3, row4];
 
 // matrix of which cookie buttons to hide when a cookie button is clicked
 var cookiebtnClicked = [[1,2],[0,2],[0,1]];
+
+var description = document.getElementById("description");
+var ingred = document.getElementById("ingred");
+var ingredBtn = document.getElementById("ingredBtn");
+
+ingredBtn.addEventListener("click", function () {
+	description.classList.toggle("h");
+	ingred.classList.toggle("s");
+	if (ingred.classList.contains("s")) {
+		ingredBtn.innerHTML = "back";
+	} else {
+		ingredBtn.innerHTML = "ingredients";
+	}
+});
 
 // animate cookie icon when mousing over enter button
 enterBtnId.addEventListener("mouseover", function () {
@@ -159,6 +182,7 @@ function welcomeAction(action) {
 		enterBtnId.id = "enterBtn";
 		cookieId.id = "cookie";
 		pullTabWrapId.id = "pullTab-wrap-final";
+		closeBtnId.click();
 	}
 }
 
@@ -180,11 +204,12 @@ function elementHideOrShow(element, isCookie, hide) {
 }
 
 // function re-positions columns to reveal cookie description column and selected cookie description
-function hideCol(element, cookieDes, hide){
+function hideCol(element, cookieDes, cookieIngred, hide){
 	if (hide == true) {
 		setTimeout(function () {
-			colsId[3].className = colsId[3].className.replace('hideCol', 'showCol');
+			cookieDisId.className = cookieDisId.className.replace('hideCol', 'showCol');
 			cookieDes.className = cookieDes.className.replace('hideCol', 'showCol');
+			cookieIngred.className = cookieIngred.className.replace('hideCol', 'showCol');
 			setTimeout(function () {
 				colVisible = true;
 				elementHideOrShow(cookieDisId,false,false);
@@ -200,6 +225,7 @@ function hideCol(element, cookieDes, hide){
 			gap3Id.className = gap3Id.className.replace('hideCol', 'showCol');
 			element.className = element.className.replace('hideCol', 'showCol');
 			cookieDes.className = cookieDes.className.replace('showCol', 'hideCol');
+			cookieIngred.className = cookieIngred.className.replace('showCol', 'hideCol');
 		}, 1300);
 	}
 }
@@ -265,9 +291,13 @@ closeBtnId.addEventListener("click", function () {
 	elementHideOrShow(NavBtnRightId,true,false);
 	elementHideOrShow(cookieDisId,false,true);
 	elementHideOrShow(closeBtnId,true,true);
+	description.classList.remove("h");
+	ingred.classList.remove("s");
+	ingredBtn.innerHTML = "ingredients";
+
 	colVisible = false;
 	for (var i = 0; i < 3; i++) {
-		hideCol(colsId[i], cookieDes, false);
+		hideCol(colsId[i], cookieDes, cookieIngred, false);
 	}
 	loopDelay(0,false);
 });
@@ -299,6 +329,7 @@ function cycleCookies(up) {
 		}
 	}
 	currentRowDes = rowsDes[currentRowIndex];
+	currentRowIngred = rowsIngred[currentRowIndex];
 	cookiesBtnTxtId[0].innerHTML = rows[currentRowIndex].one;
 	cookiesBtnTxtId[1].innerHTML = rows[currentRowIndex].two;
 	cookiesBtnTxtId[2].innerHTML = rows[currentRowIndex].three;
@@ -309,10 +340,11 @@ for (var row = 0; row < 3; row++) {
 	(function (row) {
 		cookiesBtnId[row].addEventListener("click", function () {
 			cookieDes = currentRowDes[row];
+			cookieIngred = currentRowIngred[row];
 			for (var col = 0; col < 2; col++) {
 				hide = cookiebtnClicked[row][col];
 				elementHideOrShow(cookiesBtnId[hide],true,true);
-				hideCol(colsId[hide], cookieDes, true);
+				hideCol(colsId[hide], cookieDes, cookieIngred, true);
 				elementHideOrShow(NavBtnLeftId,true,true);
 				elementHideOrShow(NavBtnRightId,true,true);
 				elementHideOrShow(closeBtnId,true,false);

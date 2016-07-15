@@ -62,14 +62,17 @@ body {
 }
 
 /* buttons */
-.cookieBtn, .btn-3d, #pullTabBtn, #contact {
+
+
+
+.cookieBtn, .btn-3d, #pullTabBtn, #contact, .btn-2d {
 	-webkit-transition: color 0.5s;
 	-moz-transition: color 0.5s;
 	-o-transition: color 0.5s;
 	transition: color 0.5s;
 }
 
-.btn-3d:focus, .cookieBtn:focus, #pullTabBtn:focus, .cookieBtn:hover, .btn-3d:hover, #pullTabBtn:hover, #contact:hover, #contact:focus{
+.btn-3d:focus, .btn-2d:focus, .btn-2d:hover, .cookieBtn:focus, #pullTabBtn:focus, .cookieBtn:hover, .btn-3d:hover, #pullTabBtn:hover, #contact:hover, #contact:focus{
 	outline:none;
 	color: #B75151;
 }
@@ -97,9 +100,10 @@ body {
 	transition: transform 0.2s, box-shadow 0.2s, color 0.5s;
 }
 
-.btn-3d, .cookieBtn, #contact {
+.btn-3d, .cookieBtn, #contact, .btn-2d {
 	font-weight: bold;
 }
+
 #pullTabBtn {
 	border-bottom-right-radius: 90px;
 	border-bottom-left-radius: 90px;
@@ -212,6 +216,10 @@ body {
 	transform: translateY(-20px);
 }
 
+.upDownBtn, .btn-2d {
+	padding: 2vh;
+}
+
 #enterBtn, #enterBtn-final {
 	background-color: #432727;
 	box-shadow: 0 5px #391D1D;
@@ -238,19 +246,21 @@ body {
 #info {
 	max-height: 0;
 	overflow: hidden;
-	transition: 0.5s ease-in-out;
 	opacity: 0;
+	-webkit-transition: max-height 0.5s, opacity 1s, ease-in-out;
+	-moz-transition: max-height 0.5s, opacity 1s, ease-in-out;
+	-o-transition: max-height 0.5s, opacity 1s, ease-in-out;
+	transition: max-height 0.5s, opacity 1s, ease-in-out;
 }
 
 #info.show{
 	opacity: 1;
-	max-height: 19vh;
+	max-height: 39vh;
 }
 
 #pullTabBtn, #bottomNav {
 	background-color: #4b2f2f;
 }
-
 
 #pullTab-wrap, #pullTab-wrap-show {
 	-webkit-transition: max-height 0.4s ease-in-out;
@@ -314,7 +324,7 @@ body {
 	margin-top: 0;
 }
 
-#aboutContent, #cookieDis {
+#aboutContent, #disWrap {
 	-webkit-transition-delay: 0.4s;
 	-moz-transition-delay: 0.4s;
 	-o-transition-delay: 0.4s;
@@ -422,7 +432,7 @@ body {
 	padding-left: 5vh;
 }
 
-.cookieBtn, .upDownBtn {
+.cookieBtn, .upDownBtn, .btn-2d {
 	background-color: #8D2727;
 }
 
@@ -451,7 +461,6 @@ body {
 }
 
 .upDownBtn {
-	padding: 2vh;
 	box-shadow: 0 5px #831D1D;
 	border-radius: 90px 90px 90px 90px;
 }
@@ -459,6 +468,28 @@ body {
 .tableCol {
 	min-height: 40vh;
 	position: relative;
+}
+
+#description, #ingred {
+	-webkit-transition: max-height 1s, opacity 0.5s, ease-in-out;
+	-moz-transition: max-height 1s, opacity 0.5s, ease-in-out;
+	-o-transition: max-height 1s, opacity 0.5s, ease-in-out;
+	transition: max-height 1s, opacity 0.5s, ease-in-out;
+}
+
+#description, #ingred.s {
+	opacity: 1;
+	max-height: 39vh;
+}
+
+#description.h, #ingred {
+	opacity: 0;
+	max-height: 0;
+	overflow: hidden;
+}
+
+#ingred {
+	font-size: 2vh;
 }
 
 .edgeCol {
@@ -475,9 +506,9 @@ body {
 
 /* for testing */
 
-/*.filler {*/
-	/*font-size: 3vh;*/
-/*}*/
+.filler {
+	font-size: 3vh;
+}
 
 /*#extraOneScreen {*/
 /*height: 100vh;*/
