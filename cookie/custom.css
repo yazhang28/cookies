@@ -31,6 +31,10 @@ body {
 	transition-timing-function: ease-out;
 }
 
+hr {
+	border: 1px solid;
+}
+
 /* text decoration: none */
 #pullTabBtn, #contact {
 	text-decoration: none;
@@ -57,14 +61,11 @@ body {
 }
 
 /* letter spacing: 2px */
-.btn-3d, .cookieBtn, #contact, #info, .content {
+.btn-3d, .cookieBtn, #contact, #info, .content, .btn-2d {
 	letter-spacing: 2px;
 }
 
 /* buttons */
-
-
-
 .cookieBtn, .btn-3d, #pullTabBtn, #contact, .btn-2d {
 	-webkit-transition: color 0.5s;
 	-moz-transition: color 0.5s;
@@ -281,7 +282,7 @@ body {
 }
 
 #pullTab-wrap-show {
-	max-height: 7%;
+	max-height: 11vh;
 }
 
 #pullTab-wrap-final {
@@ -298,7 +299,7 @@ body {
 }
 
 #row-about, #row-shop {
-	height: 100vh;
+	min-height: 100vh;
 }
 
 /* about */
@@ -332,10 +333,24 @@ body {
 }
 
 /* shop */
+#underline {
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;;
+	transition: all 1s;
+}
+
+#underline.col-xs-1 {
+	opacity: 0;
+}
+
+#underline.col-xs-8 {
+	opacity: 1;
+}
+
 #row-shop {
 	background-color: #973131;
 	color: wheat;
-	/*position: relative;*/
 }
 
 @-webkit-keyframes shopBtnShowAnim {
@@ -471,10 +486,10 @@ body {
 }
 
 #description, #ingred {
-	-webkit-transition: max-height 1s, opacity 0.5s, ease-in-out;
-	-moz-transition: max-height 1s, opacity 0.5s, ease-in-out;
-	-o-transition: max-height 1s, opacity 0.5s, ease-in-out;
-	transition: max-height 1s, opacity 0.5s, ease-in-out;
+	-webkit-transition: max-height 1.2s, opacity 0.5s, ease-in-out;
+	-moz-transition: max-height 1.2s, opacity 0.5s, ease-in-out;
+	-o-transition: max-height 1.2s, opacity 0.5s, ease-in-out;
+	transition: max-height 1.2s, opacity 0.5s, ease-in-out;
 }
 
 #description, #ingred.s {

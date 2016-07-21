@@ -14,6 +14,7 @@ var aboutHeadId = document.getElementById("aboutHead");
 var aboutContentId = document.getElementById("aboutContent");
 
 var shopTitleId = document.getElementById("shopTitle");
+var underlineId = document.getElementById("underline");
 var shopContentId = document.getElementById("shopContent");
 
 var cookiesBtnId = document.getElementsByClassName("cookieBtn");
@@ -28,6 +29,7 @@ var hide = 0;
 var colsId = document.getElementsByClassName("tableCol");
 var gap2Id = document.getElementById("gap2");
 var gap3Id = document.getElementById("gap3");
+
 var cookieDisId = document.getElementById("disWrap");
 var cookieDes;
 var cookieIngred;
@@ -81,19 +83,10 @@ var rows = [row1, row2, row3, row4];
 // matrix of which cookie buttons to hide when a cookie button is clicked
 var cookiebtnClicked = [[1,2],[0,2],[0,1]];
 
+
 var description = document.getElementById("description");
 var ingred = document.getElementById("ingred");
 var ingredBtn = document.getElementById("ingredBtn");
-
-ingredBtn.addEventListener("click", function () {
-	description.classList.toggle("h");
-	ingred.classList.toggle("s");
-	if (ingred.classList.contains("s")) {
-		ingredBtn.innerHTML = "back";
-	} else {
-		ingredBtn.innerHTML = "ingredients";
-	}
-});
 
 // animate cookie icon when mousing over enter button
 enterBtnId.addEventListener("mouseover", function () {
@@ -104,13 +97,8 @@ enterBtnId.addEventListener("mouseout", function () {
 	cookieAnim("cookie");
 });
 
-contactBtn.onclick = function () {
-	contactBtn.classList.toggle("active");
-	infoId.classList.toggle("show");
-};
-
 // closes welcome screen and re-enable scroll when enter button clicked
-enterBtnId.addEventListener("click", function() {
+enterBtnId.onclick = function () {
 	window.scrollTo(0,0);
 	elementHideOrShow(aboutHeadId, false, true);
 	elementHideOrShow(aboutContentId, false, true);
@@ -118,10 +106,10 @@ enterBtnId.addEventListener("click", function() {
 	setTimeout(function () {
 		welcomeAction("open");
 	}, 300);
-});
+};
 
 // return to welcome screen and disable scroll when tab is clicked
-pullTabBtnId.addEventListener("click", function () {
+pullTabBtnId.onclick = function () {
 	pullTabIconId.className = "glyphicon glyphicon-chevron-up img-responsive";
 	setTimeout(function () {
 		welcomeAction("close");
@@ -133,8 +121,13 @@ pullTabBtnId.addEventListener("click", function () {
 		elementHideOrShow(shopTitleId, false, true);
 		pullTabWrapId.id = "pullTab-wrap";
 	}, 1000);
-});
+};
 
+// show contact on click and hide when scrolling
+contactBtn.onclick = function () {
+    contactBtn.classList.toggle("active");
+    infoId.classList.toggle("show");
+};
 
 // check if element is in viewport and apply appropriate animation
 window.addEventListener("scroll", function () {
@@ -152,6 +145,44 @@ window.addEventListener("scroll", function () {
 		scrollFinished();
 	}, 500);
 });
+
+// when up cookie nav button is clicked
+NavBtnLeftId.onclick = function () {
+    navClicked(true);
+};
+
+// when down cookie nav button is clicked
+NavBtnRightId.onclick = function () {
+    navClicked(false);
+};
+
+// when back button selected displays nav buttons and previous cookies
+closeBtnId.onclick = function () {
+    elementHideOrShow(NavBtnLeftId,true,false);
+    elementHideOrShow(NavBtnRightId,true,false);
+    elementHideOrShow(cookieDisId,false,true);
+    elementHideOrShow(closeBtnId,true,true);
+    description.classList.remove("h");
+    ingred.classList.remove("s");
+    ingredBtn.innerHTML = "ingredients";
+
+    colVisible = false;
+    for (var i = 0; i < 3; i++) {
+        hideCol(colsId[i], cookieDes, cookieIngred, false);
+    }
+    loopDelay(0,false);
+};
+
+// ingredient button clicked to show ingredients and back option
+ingredBtn.onclick = function () {
+    description.classList.toggle("h");
+    ingred.classList.toggle("s");
+    if (ingred.classList.contains("s")) {
+        ingredBtn.innerHTML = "back";
+    } else {
+        ingredBtn.innerHTML = "ingredients";
+    }
+};
 
 // show pull tab button when user stops scrolling
 function scrollFinished() {
@@ -231,6 +262,7 @@ function hideCol(element, cookieDes, cookieIngred, hide){
 }
 
 function scrollAnim() {
+	var underlineInView = inView(underlineId);
 	var aboutInView = inView(aboutId);
 	var shopTitleInView = inView(shopTitleId);
 	var shopContentInView = inView(shopContentId);
@@ -248,6 +280,19 @@ function scrollAnim() {
 		elementHideOrShow(shopTitleId, false, true);
 	} else {
 		elementHideOrShow(shopTitleId, false, false);
+	}
+
+	if (underlineInView == false) {
+		underlineId.classList.remove('col-xs-8');
+		underlineId.classList.add('col-xs-1');
+		underlineId.classList.remove('col-xs-offset-2');
+		underlineId.classList.add('col-xs-offset-6');
+	} else {
+		underlineId.classList.remove('col-xs-1');
+		underlineId.classList.add('col-xs-8');
+		underlineId.classList.remove('col-xs-offset-6');
+		underlineId.classList.add('col-xs-offset-2');
+
 	}
 
 	if (shopContentInView == false) {
@@ -274,33 +319,6 @@ function loopDelay(i, hide) {
 		}
 	}, 200);
 }
-
-// when up cookie nav button is clicked
-NavBtnLeftId.addEventListener("click", function () {
-	navClicked(true);
-});
-
-// when down cookie nav button is clicked
-NavBtnRightId.addEventListener("click", function () {
-	navClicked(false);
-});
-
-// when back button selected displays nav buttons and previous cookies
-closeBtnId.addEventListener("click", function () {
-	elementHideOrShow(NavBtnLeftId,true,false);
-	elementHideOrShow(NavBtnRightId,true,false);
-	elementHideOrShow(cookieDisId,false,true);
-	elementHideOrShow(closeBtnId,true,true);
-	description.classList.remove("h");
-	ingred.classList.remove("s");
-	ingredBtn.innerHTML = "ingredients";
-
-	colVisible = false;
-	for (var i = 0; i < 3; i++) {
-		hideCol(colsId[i], cookieDes, cookieIngred, false);
-	}
-	loopDelay(0,false);
-});
 
 // when user clicks up down nav button, hides current row of cookies and cycles to next row
 function navClicked(up) {
